@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32.png">
+<link rel="icon" type="image/png" sizes="512x512" href="img/icon-512.png">
+<link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+<title>About — Joel Robinson</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="top"><div class="wrap">
+  <a class="mark" href="index.html">Joel Robinson</a>
+  <nav aria-label="Pages"><a href="index.html#work">Work</a><a href="about.html" aria-current="page">About</a><a href="#contact">Contact</a></nav>
+</div></header>
+
+<main>
+<section class="band notes" id="about"><div class="wrap">
+  <h1 class="ab-h">About</h1>
+  <p class="ab-lede">Marketer, operator and manager in Melbourne. These are the liner notes.</p>
+  <div class="cols">
+    <div>
+      <p>I've spent more than ten years in hospitality, across cafés, quick service, bakery, bars and FMCG, with a marketing degree and a digital marketing role along the way. That mix is what I bring: I know how a busy floor actually runs, and I know how to tell people about it.</p>
+      <p>On the marketing side I've spent more than three years on social content, SEO and paid campaigns for fintech, SaaS and fashion brands, including LENSELL, Diversiview and Pruijn.</p>
+      <p>As manager at Mile End Bagels Richmond I build the weekly roster against sales forecasts, run the POS and stock, coach supervisors to lead shifts, and report to the business each week. Away from work I make music and build software, which is where Spagbol came from.</p>
+    </div>
+    <div>
+    <ul class="cv" aria-label="Experience">
+      <li><b>Cafe and retail manager</b><span>Mile End Bagels, Richmond</span></li>
+      <li><b>FOH supervisor</b><span>Moon Cruller (The Lune Co.)</span></li>
+      <li><b>Digital marketing coordinator</b><span>LENSELL Group</span></li>
+      <li><b>Bachelor of Business (Marketing)</b><span>Swinburne University of Technology</span></li>
+      <li><b>Diploma of Music Production and Sound Engineering</b><span>Abbey Road Institute</span></li>
+    </ul></div>
+  </div>
+</div></section>
+<section class="band desk" id="tote"><div class="wrap">
+  <h2>What's in my tote bag</h2>
+  <p class="sub">A day in the life, from the opening shift to the studio. Tap an item to open the work behind it.</p>
+  <div class="tote"><div class="objs"><a class="obj" href="index.html#t-method"><span class="when">6:30am</span><span class="pic"><img src="img/tote-cap.webp" alt="Single O cap, on for the opening shift" width="520" height="383" loading="lazy"></span><span class="bub">Training and systems</span></a><a class="obj" href="index.html#t-spagbol"><span class="when">9:00am</span><span class="pic"><img src="img/tote-notebook.webp" alt="Orange Ideas notebook" width="195" height="275" loading="lazy"></span><span class="bub">Product and apps</span></a><a class="obj" href="index.html#t-lensell"><span class="when">11:30am</span><span class="pic"><img src="img/tote-iphone.webp" alt="iPhone" width="252" height="520" loading="lazy"></span><span class="bub">Social media</span></a><a class="obj" href="index.html#t-diversiview"><span class="when">1:00pm</span><span class="pic"><img src="img/tote-macbook.webp" alt="MacBook Pro" width="509" height="284" loading="lazy"></span><span class="bub">SEO and blogs</span></a><a class="obj" href="index.html#t-pruijn"><span class="when">4:00pm</span><span class="pic"><img src="img/tote-charger.webp" alt="Orange magnetic power bank" width="265" height="405" loading="lazy"></span><span class="bub">Paid social</span></a><a class="obj" href="index.html#t-video"><span class="when">8:00pm</span><span class="pic"><img src="img/tote-airpods.webp" alt="AirPods Pro" width="520" height="323" loading="lazy"></span><span class="bub">Video and audio</span></a></div></div>
+</div></section>
+</main>
+
+<section class="band back" id="contact"><div class="wrap">
+  <div class="row">
+    <div>
+      <h2>Let's work together</h2>
+      <p style="margin-top:14px">I'm open to marketing, business, operations, creative and admin roles in Melbourne.</p>
+      <div class="tiles">
+        <a class="tile t1" href="https://www.linkedin.com/in/jcr-melb/">LinkedIn</a>
+        <button type="button" class="tile t2" id="email-btn" aria-expanded="false" aria-controls="email-panel">Email</button>
+        <a class="tile t3" href="https://spagbol.app">Try Spagbol</a>
+        <a class="tile t4" href="index.html#work">The work</a>
+      </div>
+      <div class="email-panel" id="email-panel" hidden>
+        <p class="ep-addr">joel.robinson.melb@gmail.com</p>
+        <div class="ep-acts">
+          <button type="button" class="btn" id="copy-email">Copy address</button>
+          <a class="btn ghost" href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=joel.robinson.melb@gmail.com" target="_blank" rel="noopener">Write in Gmail</a>
+          <a class="btn ghost" href="mailto:joel.robinson.melb@gmail.com">Open mail app</a>
+        </div>
+        <p class="ep-msg" id="copy-msg" role="status"></p>
+      </div>
+      <p class="addr">joel.robinson.melb@gmail.com</p>
+    </div>
+  </div>
+</div></section>
+
+<footer><div class="wrap">© 2026 Joel Robinson, Melbourne</div></footer>
+<script>{
+const eb=document.getElementById("email-btn"),ep=document.getElementById("email-panel"),cm=document.getElementById("copy-msg");
+if(eb){eb.addEventListener("click",()=>{const o=ep.hidden;ep.hidden=!o;document.querySelector(".addr").hidden=o;eb.setAttribute("aria-expanded",String(o));if(o)ep.querySelector("button").focus()})}
+const ce=document.getElementById("copy-email");
+if(ce){ce.addEventListener("click",async()=>{const a="joel.robinson.melb@gmail.com";try{await navigator.clipboard.writeText(a);cm.textContent="Copied. Paste it into any email."}catch(e){const r=document.createRange();r.selectNodeContents(ep.querySelector(".ep-addr"));const sel=getSelection();sel.removeAllRanges();sel.addRange(r);cm.textContent="Address selected. Press Copy on your keyboard or menu."}})}
+}</script>
+</body>
+</html>
