@@ -595,3 +595,12 @@ footer{background:#e6e6e6;color:#666;font-size:14px;padding:0 0 32px}
   .sw-play{width:44px;height:44px;right:10px;bottom:10px}
   .sw-big{font-size:28px}.sw-bl{font-size:13px}.sw-tl{font-size:15px}
 }
+
+/* mobile hero: end at the lede, with a handwritten sign-off */
+.hand-tag{display:none}
+@media (max-width:600px){
+  .sleeve .credits{display:none}
+  .sleeve{min-height:0!important}
+  .sleeve .foot{margin-top:0}
+  .sleeve .hand-tag{display:block;margin:18px 0 0;font-family:"Gochi Hand","Comic Sans MS",cursive;text-transform:uppercase;letter-spacing:.05em;line-height:1.2;font-size:17px;color:var(--accent);transform:rotate(-2deg);transform-origin:left center}
+}
