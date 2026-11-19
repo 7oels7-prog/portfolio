@@ -625,3 +625,8 @@ footer{background:#e6e6e6;color:#666;font-size:14px;padding:0 0 32px}
 @media (max-width:600px){.sleeve .foot,.sleeve .featrow{position:static}}
 @media (max-width:600px){.sleeve .cat{padding-bottom:8px}.sleeve h1{margin-top:10px}.sleeve .feat{margin-bottom:10px}.sleeve .hand-tag{font-size:12.5px;letter-spacing:0;white-space:nowrap;margin-top:10px}}
 @media (max-width:370px){.sleeve .hand-tag{white-space:normal}}
+/* mobile hero: record sliding out of the top of the sleeve */
+@media (max-width:600px){
+  .stage{padding-top:46vw}
+  .record{width:80vw;left:50%;right:auto;top:0;margin-left:-40vw}
+}
