@@ -604,3 +604,24 @@ footer{background:#e6e6e6;color:#666;font-size:14px;padding:0 0 32px}
   .sleeve .foot{margin-top:0}
   .sleeve .hand-tag{display:block;margin:18px 0 0;font-family:"Gochi Hand","Comic Sans MS",cursive;text-transform:uppercase;letter-spacing:.05em;line-height:1.2;font-size:17px;color:var(--accent);transform:rotate(-2deg);transform-origin:left center}
 }
+/* mobile hero: squarer card */
+@media (max-width:600px){
+  .sleeve{padding:18px 18px 20px}
+  .sleeve .cat{padding-bottom:12px}
+  .sleeve .cat span:not(.logo){display:none}
+  .sleeve .hype{position:absolute;top:16px;right:12px;margin:0;transform:scale(.8);transform-origin:top right}
+  .sleeve h1{font-size:clamp(40px,13.4cqi,52px);margin-top:14px}
+  .sleeve .feat{margin:8px 0 6px;padding-top:8px;padding-bottom:8px}
+  .sleeve .years{margin-bottom:10px}
+  .sleeve .lede{font-size:15px;line-height:1.4}
+  .sleeve .hand-tag{font-size:13.5px;letter-spacing:.03em;margin-top:12px}
+}
+@media (max-width:600px){
+  .sleeve .years{position:absolute;top:82px;right:14px;width:86px;height:86px;aspect-ratio:1;border-radius:50%;flex-direction:column;justify-content:center;align-items:center;gap:2px;padding:8px;margin:0;text-align:center;transform:rotate(8deg)}
+  .sleeve .years b{font-size:24px;line-height:1}
+  .sleeve .years small{font-size:10px;line-height:1.1}
+  .sleeve .feat{margin-bottom:14px}
+}
+@media (max-width:600px){.sleeve .foot,.sleeve .featrow{position:static}}
+@media (max-width:600px){.sleeve .cat{padding-bottom:8px}.sleeve h1{margin-top:10px}.sleeve .feat{margin-bottom:10px}.sleeve .hand-tag{font-size:12.5px;letter-spacing:0;white-space:nowrap;margin-top:10px}}
+@media (max-width:370px){.sleeve .hand-tag{white-space:normal}}
