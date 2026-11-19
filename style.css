@@ -548,3 +548,13 @@ footer{background:#e6e6e6;color:#666;font-size:14px;padding:0 0 32px}
 .sb-meta{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px 24px;margin:16px 0;border-top:1px solid var(--rule);padding-top:14px}
 .sb-meta dt{font-size:13px;font-weight:800;color:#c2410c}.sb-meta dd{margin:2px 0 0;font-size:15px;color:#333}
 @media(max-width:700px){.sb-row{grid-template-columns:repeat(2,minmax(0,1fr))}.sb-type{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}.sb-tiles{grid-column:1/-1}.sb-meta{grid-template-columns:minmax(0,1fr)}}
+/* spagbol type, per the app's tokens */
+.sb-board,.fig-spag,.sw-art{--sp:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;--ss:-apple-system,BlinkMacSystemFont,"Inter","Segoe UI",Roboto,system-ui,sans-serif;font-family:var(--ss)}
+.sb-board b,.sb-board small,.sb-tile small{font-family:var(--ss)}
+.sb-board b{font-weight:600}
+.sb-hero p{font-family:var(--sp);font-weight:500;letter-spacing:-.02em}
+.sb-serif{font-family:var(--sp);font-weight:500;letter-spacing:-.04em}
+.sb-sans{font-family:var(--ss);font-weight:550}
+.sb-tile{font-family:var(--sp);font-weight:500;letter-spacing:-.04em}
+.fig-spag b,.sw-art span{font-family:var(--sp);font-weight:500;letter-spacing:-.025em}
+.fig-spag span{font-family:var(--ss)}
