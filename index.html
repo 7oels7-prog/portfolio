@@ -305,7 +305,6 @@
         </div>
         <p class="ep-msg" id="copy-msg" role="status"></p>
       </div>
-      <p class="addr">joel.robinson.melb@gmail.com</p>
     </div>
   </div>
 </div></section>
@@ -341,7 +340,7 @@ work.querySelector(".player").addEventListener("click",e=>{const b=e.target.clos
  if(a==="next"){show(Math.min(cur+1,tracks.length-1),true);work.classList.add("playing");setBtn()}
  if(a==="prev"){show(Math.max(cur-1,0),true);work.classList.add("playing");setBtn()}});
 const eb=document.getElementById("email-btn"),ep=document.getElementById("email-panel"),cm=document.getElementById("copy-msg");
-if(eb){eb.addEventListener("click",()=>{const o=ep.hidden;ep.hidden=!o;document.querySelector(".addr").hidden=o;eb.setAttribute("aria-expanded",String(o));if(o)ep.querySelector("button").focus()})}
+if(eb){eb.addEventListener("click",()=>{const o=ep.hidden;ep.hidden=!o;eb.setAttribute("aria-expanded",String(o));if(o)ep.querySelector("button").focus()})}
 const ce=document.getElementById("copy-email");
 if(ce){ce.addEventListener("click",async()=>{const a="joel.robinson.melb@gmail.com";try{await navigator.clipboard.writeText(a);cm.textContent="Copied. Paste it into any email."}catch(e){const r=document.createRange();r.selectNodeContents(ep.querySelector(".ep-addr"));const sel=getSelection();sel.removeAllRanges();sel.addRange(r);cm.textContent="Address selected. Press Copy on your keyboard or menu."}})}
 for(const b of document.querySelectorAll(".sw-chips button"))b.addEventListener("click",()=>{const f=b.dataset.f;for(const x of document.querySelectorAll(".sw-chips button"))x.setAttribute("aria-pressed",String(x===b));for(const t of document.querySelectorAll(".sw-tile"))t.hidden=!(f==="All"||t.dataset.tags.split(" ").includes(f))});
