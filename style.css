@@ -473,3 +473,7 @@ footer{background:#e6e6e6;color:#666;font-size:14px;padding:0 0 32px}
 #tote .tote{margin-top:96px}
 @media(max-width:760px){.cr-grid,.cr-cols{grid-template-columns:minmax(0,1fr)}#tote .tote{margin-top:80px}}
 .cr>.wrap{border-top:0;position:relative}.cr>.wrap::before{content:"";position:absolute;top:0;left:max(5vw,16px);right:max(5vw,16px);border-top:2px solid var(--ink)}
+/* work section slides over the cover */
+.hero{position:sticky;top:var(--hero-top,0px);z-index:0}
+#work{position:relative;z-index:2;background:var(--grain-soft),var(--bg);border-radius:28px 28px 0 0;box-shadow:0 -24px 40px -24px rgba(0,0,0,.28)}
+#contact,footer{position:relative;z-index:2}

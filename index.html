@@ -344,6 +344,9 @@ if(eb){eb.addEventListener("click",()=>{const o=ep.hidden;ep.hidden=!o;eb.setAtt
 const ce=document.getElementById("copy-email");
 if(ce){ce.addEventListener("click",async()=>{const a="joel.robinson.melb@gmail.com";try{await navigator.clipboard.writeText(a);cm.textContent="Copied. Paste it into any email."}catch(e){const r=document.createRange();r.selectNodeContents(ep.querySelector(".ep-addr"));const sel=getSelection();sel.removeAllRanges();sel.addRange(r);cm.textContent="Address selected. Press Copy on your keyboard or menu."}})}
 for(const b of document.querySelectorAll(".sw-chips button"))b.addEventListener("click",()=>{const f=b.dataset.f;for(const x of document.querySelectorAll(".sw-chips button"))x.setAttribute("aria-pressed",String(x===b));for(const t of document.querySelectorAll(".sw-tile"))t.hidden=!(f==="All"||t.dataset.tags.split(" ").includes(f))});
+const hero=document.querySelector(".hero"),topbar=document.querySelector(".top");
+function heroTop(){const nav=topbar?topbar.offsetHeight:0;hero.style.setProperty("--hero-top",Math.min(nav,innerHeight-hero.offsetHeight)+"px")}
+heroTop();addEventListener("resize",heroTop);addEventListener("load",heroTop);
 const npp=document.getElementById("npp"),list=[...document.querySelectorAll("#work .tl details")];let ni=-1,lastFocus=null;
 function showNp(i){if(i<0||i>=list.length)return;ni=i;const d=list[i];
  document.getElementById("npp-title").textContent=d.querySelector("h3").textContent;
