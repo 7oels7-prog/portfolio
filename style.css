@@ -570,3 +570,5 @@ footer{background:#e6e6e6;color:#666;font-size:14px;padding:0 0 32px}
 .sb-type>div:not(.sb-tiles){background:#FCF8F6;border-color:#EADBD7}
 .sb-tile small{color:inherit}
 .sb-tile small{font-family:var(--ss);letter-spacing:0;font-weight:500}
+.sw-tn{max-width:44%}.sw-tn span{display:block;line-height:1.25}
+.sw-tt b{white-space:normal;line-height:1.2;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical}.sw-tn{max-width:38%}.sw-tn b{font-size:18px}
