@@ -179,6 +179,51 @@ details.now summary h3{color:light-dark(#c2410c,var(--accent))}
 .back .email-panel .btn.ghost{background:#fff;color:#111;border:1.5px solid #111}
 .ep-acts{display:flex;flex-wrap:wrap;gap:10px}
 .ep-msg{margin:10px 0 0;font-size:14px;color:#555;min-height:1.2em}
+
+/* selected work, music-forward */
+.sw-sub{color:var(--mute);margin:12px 0 28px;font-size:18px}
+.sw-rel{display:flex;flex-wrap:wrap;background:linear-gradient(120deg,#fff 40%,#ffe3d6);border:1px solid #e2e2e2;border-radius:16px;overflow:hidden;box-shadow:0 30px 50px -36px rgba(0,0,0,.35)}
+.sw-relimg{flex:1 1 380px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));min-height:300px;max-height:420px}
+.sw-relimg img{width:100%;height:100%;object-fit:cover;object-position:top}
+.sw-relbody{flex:1 1 420px;display:flex;flex-direction:column;justify-content:center;gap:16px;padding:28px 32px}
+.sw-by{display:flex;align-items:center;gap:10px;font-size:14px;color:#555}
+.sw-jr{width:26px;height:26px;border-radius:50%;border:2px solid #111;display:grid;place-items:center;font-size:10px;font-weight:900;color:#111}
+.sw-relbody h3{font-size:clamp(32px,4vw,44px);font-weight:900;font-stretch:118%;line-height:1}
+.sw-relbody p{margin:0;font-size:17px;line-height:1.5;color:#444;max-width:46ch}
+.sw-relbody mark{background:#ffd9c7;color:#111;font-weight:800;padding:1px 6px;border-radius:4px}
+.sw-acts{display:flex;flex-wrap:wrap;gap:12px}
+.sw-btn{display:inline-flex;align-items:center;gap:10px;min-height:48px;padding:0 24px;border-radius:999px;background:var(--accent);color:var(--on-accent);text-decoration:none;font-weight:800}
+.sw-btn svg{width:14px;height:14px;fill:currentColor}
+.sw-btn.ghost{background:transparent;color:#111;border:1.5px solid #111;font-weight:700;padding:0 20px}
+.sw-chips{display:flex;flex-wrap:wrap;gap:10px;margin:28px 0 14px}
+.sw-chips button{min-height:44px;padding:0 18px;border-radius:999px;border:0;font:inherit;font-size:15px;font-weight:700;cursor:pointer;background:#e7e7e5;color:#111}
+.sw-chips button[aria-pressed="true"]{background:#111;color:#fff}
+.sw-tiles{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(330px,100%),1fr));gap:10px}
+.sw-tile{display:flex;align-items:center;gap:14px;background:#fff;border:1px solid #e4e4e4;border-radius:8px;overflow:hidden;text-decoration:none;color:#111;min-height:76px;transition:box-shadow .2s}
+.sw-tile:hover{box-shadow:0 10px 20px -14px rgba(0,0,0,.4)}
+.sw-tile[hidden]{display:none}
+.sw-tile img{flex:none;width:76px;height:76px;object-fit:cover}
+.sw-tt{display:flex;flex-direction:column;gap:3px;min-width:0;flex:1}
+.sw-tt b{font-size:16px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.sw-tt span,.sw-tn span{font-size:13px;color:#5b5b5b}
+.sw-tn{flex:none;padding-right:16px;text-align:right}
+.sw-tn b{display:block;font-size:20px;font-weight:900;font-stretch:115%;color:#c2410c}
+.sw-tophead,.sw-full{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:6px 16px;margin:44px 0 16px}
+.sw-tophead h3,.sw-full h3{font-size:28px;font-weight:900;font-stretch:115%}
+.sw-tophead span,.sw-full span{font-size:14px;color:#5b5b5b}
+.sw-full{margin-top:56px;border-top:2px solid var(--ink);padding-top:22px}
+.sw-tops{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(230px,100%),1fr));gap:18px}
+.sw-top{display:flex;flex-direction:column;gap:4px;padding:14px;border-radius:12px;background:#fff;border:1px solid #e4e4e4;text-decoration:none;color:#111}
+.sw-cov{position:relative;margin-bottom:8px}
+.sw-cov img{width:100%;aspect-ratio:1/1;object-fit:cover;border-radius:8px}
+.sw-play{position:absolute;right:10px;bottom:10px;width:48px;height:48px;border-radius:50%;background:var(--accent);display:grid;place-items:center;box-shadow:0 8px 16px -6px rgba(0,0,0,.6);transition:transform .2s}
+.sw-play svg{width:16px;height:16px;fill:var(--on-accent)}
+.sw-top:hover .sw-play{transform:scale(1.08)}
+.sw-big{font-size:30px;font-weight:900;font-stretch:118%;line-height:1}
+.sw-bl{font-size:13px;color:#5b5b5b}
+.sw-tl{font-size:16px;margin-top:4px}
+@media(max-width:600px){.sw-tops{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.sw-top{padding:8px}.sw-play{width:38px;height:38px;right:6px;bottom:6px}.sw-big{font-size:24px}.sw-bl{font-size:12px}.sw-tl{font-size:14px}.sw-relimg{min-height:220px}.sw-relbody{padding:22px 20px}.sw-tophead,.sw-full{margin-top:36px}}
+@media (prefers-reduced-motion:reduce){.sw-tile,.sw-play{transition:none}}
 /* liner notes */
 .notes{background:var(--grain-soft),linear-gradient(180deg,light-dark(#ffffff,#141414),light-dark(#e6e6e6,#0b0b0b));border-block:1px solid var(--rule)}
 .cols{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:clamp(28px,5vw,72px);margin-top:28px}
@@ -294,7 +339,7 @@ footer{background:#e6e6e6;color:#666;font-size:14px;padding:0 0 32px}
     <div class="years"><b>10+</b><small>years in hospitality</small></div>
     <div class="foot">
       <div class="feat"><small>Featuring</small>Marketing, operations and coffee</div>
-      <p class="lede">Marketer, operator and barista in Melbourne. I build the systems, tools and content that help small teams run better and sell more.</p>
+      <p class="lede">Marketer, operator and manager in Melbourne. I build the systems, tools and content that help small teams run better and sell more.</p>
       <div class="credits">
         <p>Produced in Melbourne. Recorded at Mile End Bagels, LENSELL Group and Moon Cruller. Mastered at Swinburne (Bachelor of Business, Marketing) and Abbey Road Institute (Diploma of Music Production and Sound Engineering).</p>
         <svg class="barcode" viewBox="0 0 92 40" aria-hidden="true"></svg>
@@ -304,30 +349,43 @@ footer{background:#e6e6e6;color:#666;font-size:14px;padding:0 0 32px}
 </div></div></section>
 
 <main>
-<section class="band hits" aria-label="Greatest hits"><div class="wrap">
-  <h2>Greatest hits</h2>
-  <ol class="hitlist">
-    <li><b>333%</b><span>more profile visits</span><a href="#t-pruijn" data-open="t-pruijn">Pruijn paid social</a></li>
-    <li><b>54%</b><span>more search impressions in 3 months</span><a href="#t-diversiview" data-open="t-diversiview">Diversiview SEO</a></li>
-    <li><b>3.22%</b><span>ad click-through, above industry average</span><a href="#t-pruijn" data-open="t-pruijn">Pruijn paid social</a></li>
-    <li><b>10+</b><span>years running cafés, bars and bakeries</span><a href="#about">Liner notes</a></li>
-  </ol>
-</div></section>
 <section class="band desk" id="skills"><div class="wrap">
   <h2>What's in my tote bag</h2>
   <p class="sub">A day in the life, from the opening shift to the studio. Tap an item to play its track.</p>
   <div class="tote"><div class="objs"><a class="obj" href="#t-method" data-open="t-method"><span class="when">6:30am</span><span class="pic"><img src="img/tote-cap.webp" alt="Single O cap, on for the opening shift" width="520" height="383" loading="lazy"></span><span class="bub">Training and systems</span></a><a class="obj" href="#t-spagbol" data-open="t-spagbol"><span class="when">9:00am</span><span class="pic"><img src="img/tote-notebook.webp" alt="Orange Ideas notebook" width="195" height="275" loading="lazy"></span><span class="bub">Product and apps</span></a><a class="obj" href="#t-lensell" data-open="t-lensell"><span class="when">11:30am</span><span class="pic"><img src="img/tote-iphone.webp" alt="iPhone" width="252" height="520" loading="lazy"></span><span class="bub">Social media</span></a><a class="obj" href="#t-diversiview" data-open="t-diversiview"><span class="when">1:00pm</span><span class="pic"><img src="img/tote-macbook.webp" alt="MacBook Pro" width="509" height="284" loading="lazy"></span><span class="bub">SEO and blogs</span></a><a class="obj" href="#t-pruijn" data-open="t-pruijn"><span class="when">4:00pm</span><span class="pic"><img src="img/tote-charger.webp" alt="Orange magnetic power bank" width="265" height="405" loading="lazy"></span><span class="bub">Paid social</span></a><a class="obj" href="#t-video" data-open="t-video"><span class="when">8:00pm</span><span class="pic"><img src="img/tote-airpods.webp" alt="AirPods Pro" width="520" height="323" loading="lazy"></span><span class="bub">Video and audio</span></a></div></div>
 </div></section>
 <section class="band" id="work"><div class="wrap">
-  <h2>The playlist</h2>
-  <p style="color:var(--mute);margin-top:14px">Album 1, Side A is things I've built. Side B is marketing case studies for fintech, SaaS and fashion brands. Press play on any track, or use the player to skip through.</p>
+  <h2>Selected work</h2>
+  <p class="sw-sub">Press play on anything. Every track leads with its result.</p>
 
+  <article class="sw-rel">
+    <div class="sw-relimg"><img src="img/spag-plan.webp" alt="Spagbol plan screen" loading="lazy"><img src="img/spag-ig-grid.webp" alt="Spagbol Instagram grid" loading="lazy"></div>
+    <div class="sw-relbody">
+      <div class="sw-by"><span class="sw-jr">JR</span><span><b>Joel Robinson</b>, new release</span></div>
+      <h3>Spagbol, out now</h3>
+      <p>A meal and grocery planner I designed, built, branded and launched solo. <mark>Over 300 recipes added in the first week</mark>, plus 1,900+ views across Instagram and TikTok.</p>
+      <div class="sw-acts">
+        <a class="sw-btn" href="#t-spagbol" data-open="t-spagbol"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5v11l9-5.5z"/></svg>Play the case study</a>
+        <a class="sw-btn ghost" href="https://spagbol.app">Try the app</a>
+      </div>
+    </div>
+  </article>
+
+  <div class="sw-chips" role="group" aria-label="Filter projects by skill">
+    <button type="button" aria-pressed="true" data-f="All">All</button><button type="button" aria-pressed="false" data-f="Marketing">Marketing</button><button type="button" aria-pressed="false" data-f="Product">Product</button><button type="button" aria-pressed="false" data-f="Operations">Operations</button>
+  </div>
+  <div class="sw-tiles"><a class="sw-tile" href="#t-spagbol" data-open="t-spagbol" data-tags="Product Marketing"><img src="img/spag-plan.webp" alt="" style="object-position:top" loading="lazy"><span class="sw-tt"><b>Spagbol</b><span>Product and social</span></span><span class="sw-tn"><b>300+</b><span>recipes, week one</span></span></a><a class="sw-tile" href="#t-spend" data-open="t-spend" data-tags="Product"><img src="img/spag-spend.webp" alt="" style="object-position:top" loading="lazy"><span class="sw-tt"><b>Price estimates and spend</b><span>Spagbol, pricing and data</span></span><span class="sw-tn"><b>$25</b><span>a dinner</span></span></a><a class="sw-tile" href="#t-cook" data-open="t-cook" data-tags="Product"><img src="img/spag-cook-step1.webp" alt="" style="object-position:top" loading="lazy"><span class="sw-tt"><b>Cook mode</b><span>Spagbol, UX</span></span><span class="sw-tn"><b>169</b><span>Reel views</span></span></a><a class="sw-tile" href="#t-method" data-open="t-method" data-tags="Operations Product"><img src="img/mem-home.webp" alt="" style="object-position:top" loading="lazy"><span class="sw-tt"><b>Mile End Method</b><span>Operations</span></span><span class="sw-tn"><b>$0</b><span>to run</span></span></a><a class="sw-tile" href="#t-lensell" data-open="t-lensell" data-tags="Marketing"><img src="img/lensell-cover.webp" alt="" style="object-position:center" loading="lazy"><span class="sw-tt"><b>LENSELL social media</b><span>Social media</span></span><span class="sw-tn"><b>1,607</b><span>per post</span></span></a><a class="sw-tile" href="#t-diversiview" data-open="t-diversiview" data-tags="Marketing"><img src="img/diversiview-cover.webp" alt="" style="object-position:right" loading="lazy"><span class="sw-tt"><b>Diversiview SEO and blog</b><span>SEO</span></span><span class="sw-tn"><b>+54%</b><span>impressions</span></span></a><a class="sw-tile" href="#t-pruijn" data-open="t-pruijn" data-tags="Marketing"><img src="img/pruijn-cover.webp" alt="" style="object-position:center" loading="lazy"><span class="sw-tt"><b>Pruijn paid social</b><span>Paid social</span></span><span class="sw-tn"><b>+333%</b><span>profile visits</span></span></a><a class="sw-tile" href="#t-video" data-open="t-video" data-tags="Marketing"><img src="img/shortform-cover.webp" alt="" style="object-position:right" loading="lazy"><span class="sw-tt"><b>Video killed the radio star</b><span>Research</span></span><span class="sw-tn"><b>2.7%</b><span>Reels target</span></span></a></div>
+
+  <div class="sw-tophead"><h3>Top results</h3><span>Picked for employers</span></div>
+  <div class="sw-tops"><a class="sw-top" href="#t-pruijn" data-open="t-pruijn"><span class="sw-cov"><img src="img/pruijn-cover.webp" alt="Pruijn case study cover" style="object-position:center" loading="lazy"><span class="sw-play" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M4 2.5v11l9-5.5z"/></svg></span></span><b class="sw-big">+333%</b><span class="sw-bl">profile visits</span><b class="sw-tl">Pruijn paid social</b></a><a class="sw-top" href="#t-diversiview" data-open="t-diversiview"><span class="sw-cov"><img src="img/diversiview-cover.webp" alt="Diversiview case study cover" style="object-position:right" loading="lazy"><span class="sw-play" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M4 2.5v11l9-5.5z"/></svg></span></span><b class="sw-big">+54%</b><span class="sw-bl">search impressions</span><b class="sw-tl">Diversiview SEO</b></a><a class="sw-top" href="#t-lensell" data-open="t-lensell"><span class="sw-cov"><img src="img/lensell-cover.webp" alt="LENSELL case study cover" style="object-position:center" loading="lazy"><span class="sw-play" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M4 2.5v11l9-5.5z"/></svg></span></span><b class="sw-big">1,607</b><span class="sw-bl">impressions a post</span><b class="sw-tl">LENSELL social</b></a><a class="sw-top" href="#t-method" data-open="t-method"><span class="sw-cov"><img src="img/mem-home.webp" alt="Mile End Method app home" style="object-position:top" loading="lazy"><span class="sw-play" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M4 2.5v11l9-5.5z"/></svg></span></span><b class="sw-big">$0</b><span class="sw-bl">to run, on tools the café already uses</span><b class="sw-tl">Mile End Method</b></a></div>
+
+  <div class="sw-full"><h3>The full tracklist</h3><span>Every case study in detail. Open any track, or use the player to skip through.</span></div>
   <div class="sides">
     <div>
       <div class="side-h"><img class="side-art" src="img/side-a.webp" alt="Collage of Spagbol plan, spend and cook mode screens and Mile End Method app" width="600" height="600" loading="lazy"><div><b>Album 1 / Side A</b><span>Built, 4 tracks</span></div></div>
 
       <details id="t-spagbol">
-        <summary><span class="play" aria-hidden="true"><i></i></span><span class="no">A1</span><h3>Spagbol</h3><span class="genre">Product and social</span><span class="tog" aria-hidden="true">+</span><span class="one">Built, branded and launched solo, with 1,900+ views across Instagram and TikTok</span></summary>
+        <summary><span class="play" aria-hidden="true"><i></i></span><span class="no">A1</span><h3>Spagbol</h3><span class="genre">Product and social</span><span class="tog" aria-hidden="true">+</span><span class="one">Built, branded and launched solo, with over 300 recipes added in the first week</span></summary>
         <div class="body">
           <div class="fig-spag"><svg viewBox="0 0 200 200" class="spmark" aria-hidden="true"><defs><filter id="spg" x="-10%" y="-10%" width="120%" height="120%"><feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="2" seed="3" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="4"/></filter></defs><g filter="url(#spg)"><circle cx="58" cy="58" r="36" fill="#14110F"/><path d="M 106 44 L 178 44 A 36 36 0 0 1 106 44 Z" fill="#14110F"/><path d="M 22 178 L 22 106 A 72 72 0 0 1 94 178 Z" fill="#14110F"/><rect x="112" y="112" width="60" height="60" rx="6" fill="#B07A3C" transform="rotate(18 142 142)"/></g></svg><div><b>Spagbol</b><span>Your greatest hits, on rotation.</span></div></div>
           <ul class="tags"><li>Product</li><li>Brand</li><li>Build</li><li>Social</li><li>Launch marketing</li></ul>
@@ -601,6 +659,7 @@ const eb=document.getElementById("email-btn"),ep=document.getElementById("email-
 if(eb){eb.addEventListener("click",()=>{const o=ep.hidden;ep.hidden=!o;document.querySelector(".addr").hidden=o;eb.setAttribute("aria-expanded",String(o));if(o)ep.querySelector("button").focus()})}
 const ce=document.getElementById("copy-email");
 if(ce){ce.addEventListener("click",async()=>{const a="joel.robinson.melb@gmail.com";try{await navigator.clipboard.writeText(a);cm.textContent="Copied. Paste it into any email."}catch(e){const r=document.createRange();r.selectNodeContents(ep.querySelector(".ep-addr"));const sel=getSelection();sel.removeAllRanges();sel.addRange(r);cm.textContent="Address selected. Press Copy on your keyboard or menu."}})}
+for(const b of document.querySelectorAll(".sw-chips button"))b.addEventListener("click",()=>{const f=b.dataset.f;for(const x of document.querySelectorAll(".sw-chips button"))x.setAttribute("aria-pressed",String(x===b));for(const t of document.querySelectorAll(".sw-tile"))t.hidden=!(f==="All"||t.dataset.tags.split(" ").includes(f))});
 const openT=id=>{const d=document.getElementById(id);if(d&&d.tagName==="DETAILS"){d.open=true}};
 document.addEventListener("click",e=>{const a=e.target.closest("[data-open]");if(a)openT(a.dataset.open)});
 if(location.hash)openT(location.hash.slice(1));
