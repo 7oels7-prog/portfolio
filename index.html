@@ -309,8 +309,9 @@
   </div>
 </div></section>
 
+<div class="npp-bd" id="npp-bd" hidden></div>
 <div class="npp" id="npp" role="dialog" aria-modal="true" aria-labelledby="npp-title" hidden>
-  <div class="npp-top"><button type="button" class="npp-x" data-np="close" aria-label="Close"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button><div class="npp-ctx"><small>Now playing</small><span id="npp-side"></span></div><span class="npp-count" id="npp-count"></span></div>
+  <div class="npp-top"><span class="npp-grab" aria-hidden="true"></span><button type="button" class="npp-x" data-np="close" aria-label="Close"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button><div class="npp-ctx"><small>Now playing</small><span id="npp-side"></span></div><span class="npp-count" id="npp-count"></span></div>
   <div class="npp-scroll"><div class="npp-in">
     <span class="npp-genre" id="npp-genre"></span>
     <h2 id="npp-title"></h2>
@@ -321,6 +322,7 @@
     <button type="button" class="pb" data-np="prev" aria-label="Previous case study"><svg viewBox="0 0 24 24"><path d="M6 5h2v14H6zM20 5v14L9 12z"/></svg></button>
     <div class="npp-mid"><b id="npp-now"></b><div class="prog"><span id="npp-bar"></span></div></div>
     <button type="button" class="pb" data-np="next" aria-label="Next case study"><svg viewBox="0 0 24 24"><path d="M16 5h2v14h-2zM4 5v14l11-7z"/></svg></button>
+    <button type="button" class="npp-close" data-np="close">Close</button>
   </div>
 </div>
 <footer><div class="wrap">© 2026 Joel Robinson, Melbourne</div></footer>
@@ -358,9 +360,14 @@ function showNp(i){if(i<0||i>=list.length)return;ni=i;const d=list[i];
  document.getElementById("npp-now").textContent=(list[i+1]?"Up next: "+list[i+1].querySelector("h3").textContent:"Last track");
  document.getElementById("npp-bar").style.width=((i+1)/list.length*100)+"%";
  npp.querySelector(".npp-scroll").scrollTop=0}
-function openNp(id){const i=list.findIndex(d=>d.id===id);if(i<0)return false;lastFocus=document.activeElement;showNp(i);npp.hidden=false;document.body.classList.add("npp-on");npp.querySelector(".npp-x").focus();history.replaceState(null,"","#"+id);return true}
-function closeNp(){npp.hidden=true;document.body.classList.remove("npp-on");history.replaceState(null,"",location.pathname+location.search);if(lastFocus)lastFocus.focus()}
+function openNp(id){const i=list.findIndex(d=>d.id===id);if(i<0)return false;lastFocus=document.activeElement;showNp(i);npp.hidden=false;document.getElementById("npp-bd").hidden=false;document.body.classList.add("npp-on");npp.querySelector(".npp-x").focus();history.replaceState(null,"","#"+id);return true}
+function closeNp(){npp.hidden=true;document.getElementById("npp-bd").hidden=true;npp.style.transform="";document.body.classList.remove("npp-on");history.replaceState(null,"",location.pathname+location.search);if(lastFocus)lastFocus.focus()}
 document.addEventListener("click",e=>{const a=e.target.closest("[data-open]");if(a&&openNp(a.dataset.open)){e.preventDefault()}},true);
+document.getElementById("npp-bd").addEventListener("click",()=>closeNp());
+{let y0=null,dy=0;const top=npp.querySelector(".npp-top"),sc=npp.querySelector(".npp-scroll");
+npp.addEventListener("touchstart",e=>{if(e.target.closest(".npp-top")||sc.scrollTop<=0){y0=e.touches[0].clientY;dy=0}else y0=null},{passive:true});
+npp.addEventListener("touchmove",e=>{if(y0===null)return;dy=e.touches[0].clientY-y0;if(dy>0){npp.style.transition="none";npp.style.transform="translateY("+dy+"px)"}},{passive:true});
+npp.addEventListener("touchend",()=>{if(y0===null)return;npp.style.transition="";if(dy>110)closeNp();else npp.style.transform="";y0=null})}
 npp.addEventListener("click",e=>{const b=e.target.closest("[data-np]");if(!b)return;const a=b.dataset.np;if(a==="close")closeNp();if(a==="next")showNp(ni+1);if(a==="prev")showNp(ni-1);if(a!=="close")history.replaceState(null,"","#"+list[ni].id)});
 document.addEventListener("keydown",e=>{if(npp.hidden)return;if(e.key==="Escape")closeNp();if(e.key==="Tab"){const f=[...npp.querySelectorAll("button,a[href]")].filter(x=>x.offsetParent);if(!f.length)return;const first=f[0],last=f[f.length-1];if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus()}else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus()}}});
 if(location.hash)openNp(location.hash.slice(1));
