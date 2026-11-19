@@ -229,6 +229,29 @@ details.now summary h3{color:light-dark(#c2410c,var(--accent))}
 .sw-art svg{width:42%;height:auto}
 .sw-art span{font-family:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;font-size:30px;color:#14110F}
 @media(max-width:600px){.sw-art{flex-basis:auto;width:150px;max-height:150px;margin:20px 0 0 20px}.sw-art span{font-size:18px}.sw-art{gap:6px}}
+
+/* now playing panel */
+.npp{position:fixed;inset:0;z-index:60;background:var(--bg);display:flex;flex-direction:column;animation:nppUp .35s cubic-bezier(.2,.8,.2,1)}
+.npp[hidden]{display:none}
+@keyframes nppUp{from{transform:translateY(100%)}to{transform:none}}
+@media (prefers-reduced-motion:reduce){.npp{animation:none}}
+.npp-top{display:flex;align-items:center;gap:12px;padding:10px max(4vw,12px);border-bottom:1px solid var(--rule);background:rgba(255,255,255,.92)}
+.npp-x{width:44px;height:44px;border-radius:50%;border:0;background:#ececec;display:grid;place-items:center;cursor:pointer}
+.npp-x svg{width:22px;height:22px;fill:none;stroke:#111;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
+.npp-ctx{flex:1;display:flex;flex-direction:column;align-items:center;line-height:1.2}
+.npp-ctx small{font-size:12px;color:var(--mute)}.npp-ctx span{font-size:14px;font-weight:700}
+.npp-count{width:44px;text-align:right;font-size:13px;color:var(--mute);font-variant-numeric:tabular-nums}
+.npp-scroll{flex:1;overflow-y:auto;-webkit-overflow-scrolling:touch}
+.npp-in{max-width:980px;margin:0 auto;padding:28px max(4vw,16px) 40px}
+.npp-genre{display:inline-block;font-size:13px;font-weight:700;padding:5px 12px;border-radius:999px;background:var(--accent);color:var(--on-accent)}
+.npp-in h2{font-size:clamp(32px,5vw,52px);margin:14px 0 8px}
+.npp-one{color:var(--mute);font-size:18px;margin:0 0 22px}
+#npp-body .body{padding:0!important;max-width:none}
+.npp-bar{display:flex;align-items:center;gap:8px;padding:10px max(4vw,12px) max(10px,env(safe-area-inset-bottom));border-top:1px solid var(--rule);background:#fff}
+.npp-bar .pb{width:48px;height:48px}
+.npp-mid{flex:1;display:grid;gap:6px;min-width:0;text-align:center}
+.npp-mid b{font-size:14px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+body.npp-on{overflow:hidden}
 /* liner notes */
 .notes{background:var(--grain-soft),linear-gradient(180deg,light-dark(#ffffff,#141414),light-dark(#e6e6e6,#0b0b0b));border-block:1px solid var(--rule)}
 .cols{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:clamp(28px,5vw,72px);margin-top:28px}
@@ -384,8 +407,8 @@ footer{background:#e6e6e6;color:#666;font-size:14px;padding:0 0 32px}
   <div class="sw-tophead"><h3>Top results</h3><span>Picked for employers</span></div>
   <div class="sw-tops"><a class="sw-top" href="#t-pruijn" data-open="t-pruijn"><span class="sw-cov"><img src="img/pruijn-cover.webp" alt="Pruijn case study cover" style="object-position:center" loading="lazy"><span class="sw-play" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M4 2.5v11l9-5.5z"/></svg></span></span><b class="sw-big">+333%</b><span class="sw-bl">profile visits</span><b class="sw-tl">Pruijn paid social</b></a><a class="sw-top" href="#t-diversiview" data-open="t-diversiview"><span class="sw-cov"><img src="img/diversiview-cover.webp" alt="Diversiview case study cover" style="object-position:right" loading="lazy"><span class="sw-play" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M4 2.5v11l9-5.5z"/></svg></span></span><b class="sw-big">+54%</b><span class="sw-bl">search impressions</span><b class="sw-tl">Diversiview SEO</b></a><a class="sw-top" href="#t-lensell" data-open="t-lensell"><span class="sw-cov"><img src="img/lensell-cover.webp" alt="LENSELL case study cover" style="object-position:center" loading="lazy"><span class="sw-play" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M4 2.5v11l9-5.5z"/></svg></span></span><b class="sw-big">1,607</b><span class="sw-bl">impressions a post</span><b class="sw-tl">LENSELL social</b></a><a class="sw-top" href="#t-method" data-open="t-method"><span class="sw-cov"><img src="img/mem-home.webp" alt="Mile End Method app home" style="object-position:top" loading="lazy"><span class="sw-play" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M4 2.5v11l9-5.5z"/></svg></span></span><b class="sw-big">$0</b><span class="sw-bl">to run, on tools the café already uses</span><b class="sw-tl">Mile End Method</b></a></div>
 
-  <div class="sw-full"><h3>The full tracklist</h3><span>Every case study in detail. Open any track, or use the player to skip through.</span></div>
-  <div class="tl">
+  <div class="sw-full" hidden><h3>The full tracklist</h3><span>Every case study in detail. Open any track, or use the player to skip through.</span></div>
+  <div class="tl" hidden>
   <div class="sides">
     <div>
       <div class="side-h"><img class="side-art" src="img/side-a.webp" alt="Collage of Spagbol plan, spend and cook mode screens and Mile End Method app" width="600" height="600" loading="lazy"><div><b>Album 1 / Side A</b><span>Built, 4 tracks</span></div></div>
@@ -646,6 +669,21 @@ footer{background:#e6e6e6;color:#666;font-size:14px;padding:0 0 32px}
     </div>
   </div>
 </div></section>
+
+<div class="npp" id="npp" role="dialog" aria-modal="true" aria-labelledby="npp-title" hidden>
+  <div class="npp-top"><button type="button" class="npp-x" data-np="close" aria-label="Close"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button><div class="npp-ctx"><small>Now playing</small><span id="npp-side"></span></div><span class="npp-count" id="npp-count"></span></div>
+  <div class="npp-scroll"><div class="npp-in">
+    <span class="npp-genre" id="npp-genre"></span>
+    <h2 id="npp-title"></h2>
+    <p class="npp-one" id="npp-one"></p>
+    <div id="npp-body"></div>
+  </div></div>
+  <div class="npp-bar">
+    <button type="button" class="pb" data-np="prev" aria-label="Previous case study"><svg viewBox="0 0 24 24"><path d="M6 5h2v14H6zM20 5v14L9 12z"/></svg></button>
+    <div class="npp-mid"><b id="npp-now"></b><div class="prog"><span id="npp-bar"></span></div></div>
+    <button type="button" class="pb" data-np="next" aria-label="Next case study"><svg viewBox="0 0 24 24"><path d="M16 5h2v14h-2zM4 5v14l11-7z"/></svg></button>
+  </div>
+</div>
 <footer><div class="wrap">© 2026 Joel Robinson, Melbourne</div></footer>
 
 <script>{
@@ -667,9 +705,23 @@ if(eb){eb.addEventListener("click",()=>{const o=ep.hidden;ep.hidden=!o;document.
 const ce=document.getElementById("copy-email");
 if(ce){ce.addEventListener("click",async()=>{const a="joel.robinson.melb@gmail.com";try{await navigator.clipboard.writeText(a);cm.textContent="Copied. Paste it into any email."}catch(e){const r=document.createRange();r.selectNodeContents(ep.querySelector(".ep-addr"));const sel=getSelection();sel.removeAllRanges();sel.addRange(r);cm.textContent="Address selected. Press Copy on your keyboard or menu."}})}
 for(const b of document.querySelectorAll(".sw-chips button"))b.addEventListener("click",()=>{const f=b.dataset.f;for(const x of document.querySelectorAll(".sw-chips button"))x.setAttribute("aria-pressed",String(x===b));for(const t of document.querySelectorAll(".sw-tile"))t.hidden=!(f==="All"||t.dataset.tags.split(" ").includes(f))});
-const openT=id=>{const d=document.getElementById(id);if(d&&d.tagName==="DETAILS"){d.open=true}};
-document.addEventListener("click",e=>{const a=e.target.closest("[data-open]");if(a)openT(a.dataset.open)});
-if(location.hash)openT(location.hash.slice(1));
+const npp=document.getElementById("npp"),list=[...document.querySelectorAll("#work .tl details")];let ni=-1,lastFocus=null;
+function showNp(i){if(i<0||i>=list.length)return;ni=i;const d=list[i];
+ document.getElementById("npp-title").textContent=d.querySelector("h3").textContent;
+ document.getElementById("npp-one").textContent=d.querySelector(".one").textContent;
+ const g=d.querySelector(".genre");document.getElementById("npp-genre").textContent=g?g.textContent:"";
+ document.getElementById("npp-side").textContent=d.closest(".sides>div").querySelector(".side-h b").textContent;
+ document.getElementById("npp-body").innerHTML=d.querySelector(".body").outerHTML;
+ document.getElementById("npp-count").textContent=(i+1)+" / "+list.length;
+ document.getElementById("npp-now").textContent=(list[i+1]?"Up next: "+list[i+1].querySelector("h3").textContent:"Last track");
+ document.getElementById("npp-bar").style.width=((i+1)/list.length*100)+"%";
+ npp.querySelector(".npp-scroll").scrollTop=0}
+function openNp(id){const i=list.findIndex(d=>d.id===id);if(i<0)return false;lastFocus=document.activeElement;showNp(i);npp.hidden=false;document.body.classList.add("npp-on");npp.querySelector(".npp-x").focus();history.replaceState(null,"","#"+id);return true}
+function closeNp(){npp.hidden=true;document.body.classList.remove("npp-on");history.replaceState(null,"",location.pathname+location.search);if(lastFocus)lastFocus.focus()}
+document.addEventListener("click",e=>{const a=e.target.closest("[data-open]");if(a&&openNp(a.dataset.open)){e.preventDefault()}},true);
+npp.addEventListener("click",e=>{const b=e.target.closest("[data-np]");if(!b)return;const a=b.dataset.np;if(a==="close")closeNp();if(a==="next")showNp(ni+1);if(a==="prev")showNp(ni-1);if(a!=="close")history.replaceState(null,"","#"+list[ni].id)});
+document.addEventListener("keydown",e=>{if(npp.hidden)return;if(e.key==="Escape")closeNp();if(e.key==="Tab"){const f=[...npp.querySelectorAll("button,a[href]")].filter(x=>x.offsetParent);if(!f.length)return;const first=f[0],last=f[f.length-1];if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus()}else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus()}}});
+if(location.hash)openNp(location.hash.slice(1));
 }</script>
 </body>
 </html>
