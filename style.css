@@ -601,16 +601,3 @@ footer{background:#e6e6e6;color:#666;font-size:14px;padding:0 0 32px}
 .tote .when{color:#7a6545}
 .tote-print{z-index:0;opacity:.42}.tote .obj{z-index:2}
 @media(max-width:600px){#tote .tote{margin-top:118px}.tote::before,.tote::after{top:-92px;height:110px;width:30%}.tote::before{left:16%}.tote::after{right:16%}}
-/* orange tote, black print */
-.tote .objs{background:
-   repeating-linear-gradient(0deg,rgba(0,0,0,.05) 0 1px,transparent 1px 3px),
-   repeating-linear-gradient(90deg,rgba(0,0,0,.05) 0 1px,transparent 1px 3px),
-   radial-gradient(120% 90% at 30% 0%,#ff7038,#f0531a);
- outline-color:rgba(60,15,0,.35);box-shadow:0 34px 50px -30px rgba(120,40,0,.5),inset 0 -24px 40px -30px rgba(80,20,0,.35)}
-.tote::before{background:repeating-linear-gradient(90deg,#f25a20 0 3px,#e04d15 3px 4px)}
-.tote::after{background:repeating-linear-gradient(90deg,#ec5519 0 3px,#d94812 3px 4px)}
-.tote-print{opacity:.85;mix-blend-mode:normal}
-.tp-rec{background:repeating-radial-gradient(circle,#141414 0 2px,#262626 2px 5px)}
-.tp-rec span{background:#ff6a2e;color:#141414}
-.tote-print b,.tote-print small{color:#141414}
-.tote .when{color:#3a1405}
