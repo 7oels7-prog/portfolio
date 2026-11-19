@@ -403,3 +403,18 @@ footer{background:#e6e6e6;color:#666;font-size:14px;padding:0 0 32px}
 @media (prefers-reduced-motion:reduce){.label{animation:none}}
 
 .tl[hidden],.sw-full[hidden]{display:none!important}
+
+/* expertise */
+.expertise{background:#f7ece8;border-block:1px solid #ead9d3}
+.ex-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr) minmax(0,1fr);gap:32px 48px}
+.ex-rule{display:block;width:44px;height:3px;background:#111;margin-bottom:28px}
+.ex-intro h2{font-size:clamp(28px,3vw,36px);margin-bottom:14px}
+.ex-intro p{font-size:15px;line-height:1.55;color:#333;max-width:34ch}
+.ex-btn{display:inline-flex;align-items:center;min-height:48px;padding:0 26px;border:1.5px solid #111;color:#111;text-decoration:none;font-weight:800;font-size:14px;margin-top:10px}
+.ex-btn:hover{background:#111;color:#fff}
+.ex-col h3{font-size:14px;font-weight:800;color:#c2410c;margin:4px 0 14px}
+.ex-col ul{list-style:none;margin:0;padding:0;display:grid;gap:12px}
+.ex-col li{position:relative;padding-left:22px;font-size:17px;line-height:1.35;color:#333}
+.ex-col li::before{content:"";position:absolute;left:0;top:.68em;width:10px;height:1.5px;background:#555}
+@media(max-width:900px){.ex-grid{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}.ex-intro{grid-column:1/-1}}
+@media(max-width:600px){.ex-grid{grid-template-columns:minmax(0,1fr)}}
