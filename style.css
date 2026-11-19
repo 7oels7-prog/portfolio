@@ -499,3 +499,6 @@ footer{background:#e6e6e6;color:#666;font-size:14px;padding:0 0 32px}
  .cat{font-size:12px;gap:4px 10px}.cat .logo{width:30px;height:30px;font-size:11px}
 }
 @media(max-width:600px){.feat{font-size:13px;padding:8px 12px 9px}}@media(max-width:360px){.feat{font-size:12px}}
+
+.credits p{font-size:12px;color:#888;max-width:44ch}
+@media(max-width:600px){.credits p{font-size:11px}}
