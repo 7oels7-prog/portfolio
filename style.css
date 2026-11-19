@@ -401,3 +401,5 @@ footer{background:#e6e6e6;color:#666;font-size:14px;padding:0 0 32px}
 @keyframes spin{to{transform:rotate(360deg)}}
 @media(min-width:821px){.record{left:calc(min(100%,760px) * .78)}}
 @media (prefers-reduced-motion:reduce){.label{animation:none}}
+
+.tl[hidden],.sw-full[hidden]{display:none!important}
