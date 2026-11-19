@@ -224,6 +224,11 @@ details.now summary h3{color:light-dark(#c2410c,var(--accent))}
 .sw-tl{font-size:16px;margin-top:4px}
 @media(max-width:600px){.sw-tops{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.sw-top{padding:8px}.sw-play{width:38px;height:38px;right:6px;bottom:6px}.sw-big{font-size:24px}.sw-bl{font-size:12px}.sw-tl{font-size:14px}.sw-relimg{min-height:220px}.sw-relbody{padding:22px 20px}.sw-tophead,.sw-full{margin-top:36px}}
 @media (prefers-reduced-motion:reduce){.sw-tile,.sw-play{transition:none}}
+.sw-rel{align-items:center;gap:0}
+.sw-art{flex:0 0 260px;align-self:stretch;margin:20px 0 20px 20px;border-radius:12px;aspect-ratio:1/1;max-height:260px;background:linear-gradient(135deg,#ffc9a8,#f3b6c8 50%,#c8b8ef);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;box-shadow:0 18px 30px -18px rgba(0,0,0,.45)}
+.sw-art svg{width:42%;height:auto}
+.sw-art span{font-family:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;font-size:30px;color:#14110F}
+@media(max-width:600px){.sw-art{flex-basis:auto;width:150px;max-height:150px;margin:20px 0 0 20px}.sw-art span{font-size:18px}.sw-art{gap:6px}}
 /* liner notes */
 .notes{background:var(--grain-soft),linear-gradient(180deg,light-dark(#ffffff,#141414),light-dark(#e6e6e6,#0b0b0b));border-block:1px solid var(--rule)}
 .cols{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:clamp(28px,5vw,72px);margin-top:28px}
@@ -359,7 +364,7 @@ footer{background:#e6e6e6;color:#666;font-size:14px;padding:0 0 32px}
   <p class="sw-sub">Press play on anything. Every track leads with its result.</p>
 
   <article class="sw-rel">
-    <div class="sw-relimg"><img src="img/spag-plan.webp" alt="Spagbol plan screen" loading="lazy"><img src="img/spag-ig-grid.webp" alt="Spagbol Instagram grid" loading="lazy"></div>
+    <div class="sw-art" role="img" aria-label="Spagbol cover art: the Spagbol logo on a peach to lilac gradient"><svg viewBox="0 0 200 200" aria-hidden="true"><g><circle cx="58" cy="58" r="36" fill="#14110F"/><path d="M 106 44 L 178 44 A 36 36 0 0 1 106 44 Z" fill="#14110F"/><path d="M 22 178 L 22 106 A 72 72 0 0 1 94 178 Z" fill="#14110F"/><rect x="112" y="112" width="60" height="60" rx="6" fill="#B07A3C" transform="rotate(18 142 142)"/></g></svg><span>Spagbol</span></div>
     <div class="sw-relbody">
       <div class="sw-by"><span class="sw-jr">JR</span><span><b>Joel Robinson</b>, new release</span></div>
       <h3>Spagbol, out now</h3>
@@ -380,6 +385,7 @@ footer{background:#e6e6e6;color:#666;font-size:14px;padding:0 0 32px}
   <div class="sw-tops"><a class="sw-top" href="#t-pruijn" data-open="t-pruijn"><span class="sw-cov"><img src="img/pruijn-cover.webp" alt="Pruijn case study cover" style="object-position:center" loading="lazy"><span class="sw-play" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M4 2.5v11l9-5.5z"/></svg></span></span><b class="sw-big">+333%</b><span class="sw-bl">profile visits</span><b class="sw-tl">Pruijn paid social</b></a><a class="sw-top" href="#t-diversiview" data-open="t-diversiview"><span class="sw-cov"><img src="img/diversiview-cover.webp" alt="Diversiview case study cover" style="object-position:right" loading="lazy"><span class="sw-play" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M4 2.5v11l9-5.5z"/></svg></span></span><b class="sw-big">+54%</b><span class="sw-bl">search impressions</span><b class="sw-tl">Diversiview SEO</b></a><a class="sw-top" href="#t-lensell" data-open="t-lensell"><span class="sw-cov"><img src="img/lensell-cover.webp" alt="LENSELL case study cover" style="object-position:center" loading="lazy"><span class="sw-play" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M4 2.5v11l9-5.5z"/></svg></span></span><b class="sw-big">1,607</b><span class="sw-bl">impressions a post</span><b class="sw-tl">LENSELL social</b></a><a class="sw-top" href="#t-method" data-open="t-method"><span class="sw-cov"><img src="img/mem-home.webp" alt="Mile End Method app home" style="object-position:top" loading="lazy"><span class="sw-play" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M4 2.5v11l9-5.5z"/></svg></span></span><b class="sw-big">$0</b><span class="sw-bl">to run, on tools the café already uses</span><b class="sw-tl">Mile End Method</b></a></div>
 
   <div class="sw-full"><h3>The full tracklist</h3><span>Every case study in detail. Open any track, or use the player to skip through.</span></div>
+  <div class="tl">
   <div class="sides">
     <div>
       <div class="side-h"><img class="side-art" src="img/side-a.webp" alt="Collage of Spagbol plan, spend and cook mode screens and Mile End Method app" width="600" height="600" loading="lazy"><div><b>Album 1 / Side A</b><span>Built, 4 tracks</span></div></div>
@@ -592,6 +598,7 @@ footer{background:#e6e6e6;color:#666;font-size:14px;padding:0 0 32px}
     <div class="np"><small id="np-side">Album 1 / Side A</small><b id="np-title">Press play to start</b>
       <div class="prog"><span id="np-bar"></span></div></div>
     <span class="count" id="np-count">0 / 6</span>
+  </div>
   </div>
 </div></section>
 
