@@ -383,3 +383,10 @@ footer{background:#e6e6e6;color:#666;font-size:14px;padding:0 0 32px}
 @media(max-width:600px){.hype{display:inline-flex;max-width:100%}.hype-ring{width:auto;height:auto;white-space:nowrap;flex:none}.hype-ring small{flex:none}}
 @media(max-width:600px){.hype .hype-ring small{width:auto;margin:0}.hype .hype-ring{aspect-ratio:auto;flex-wrap:nowrap}}
 @media(max-width:600px){.hype .hype-ring{padding:5px 12px;gap:8px}.hype .hype-ring b{font-size:14px}.hype .hype-ring small{font-size:10px;letter-spacing:.08em}}
+
+/* record: further out, Hello! label */
+@media(min-width:821px){.record{left:calc(min(100%,760px) * .6)}}
+.label span{transform:none;font-size:clamp(18px,2.6vw,30px);font-weight:900;font-stretch:118%;line-height:1}
+.label::after{top:68%}
+@media(max-width:600px){.label span{font-size:20px}}
+@media(min-width:821px){.record{left:calc(min(100%,760px) * .74)}}
