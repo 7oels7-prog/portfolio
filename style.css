@@ -527,3 +527,24 @@ footer{background:#e6e6e6;color:#666;font-size:14px;padding:0 0 32px}
  .npp-count{width:auto}
 }
 @media (prefers-reduced-motion:reduce){.npp,.npp-bd{animation:none;transition:none}}
+
+/* spagbol brand board */
+.sb-board{--sp:"Iowan Old Style","Palatino Linotype",Palatino,"Book Antiqua",Georgia,serif;background:linear-gradient(180deg,#4A2430,#120C0E 70%);color:#F5ECE6;border-radius:20px;padding:clamp(20px,4vw,40px);display:grid;gap:24px;margin-bottom:10px}
+.sb-hero{display:flex;flex-direction:column;align-items:center;gap:10px;padding:10px 0 4px}
+.sb-hero img{width:min(420px,80%);height:auto}
+.sb-hero p{margin:0;font-family:var(--sp);font-size:clamp(18px,2.2vw,24px);color:#F0C2AE}
+.sb-row{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.sb-sw{display:flex;flex-direction:column;gap:4px}
+.sb-sw span{height:64px;border-radius:12px;border:1px solid #34252B}
+.sb-sw b{font-size:14px}.sb-sw small{font-size:12px;color:#CDBFB9}
+.sb-type{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr) minmax(0,1.6fr);gap:16px;align-items:start}
+.sb-type>div:not(.sb-tiles){background:#1E1519;border:1px solid #34252B;border-radius:20px;padding:16px;display:flex;flex-direction:column;gap:2px}
+.sb-serif{font-family:var(--sp);font-size:56px;line-height:1;font-weight:500}
+.sb-sans{font-family:-apple-system,BlinkMacSystemFont,"Inter","Segoe UI",Roboto,system-ui,sans-serif;font-size:56px;line-height:1;font-weight:550}
+.sb-type b{font-size:14px;margin-top:8px}.sb-type small{font-size:12px;color:#CDBFB9}
+.sb-tiles{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.sb-tile{aspect-ratio:1/1;border-radius:14px;font-family:var(--sp);font-size:40px;font-weight:500;display:flex;flex-direction:column;align-items:center;justify-content:center;line-height:1}
+.sb-tile small{font-family:system-ui,sans-serif;font-size:11px;margin-top:4px}
+.sb-meta{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px 24px;margin:16px 0;border-top:1px solid var(--rule);padding-top:14px}
+.sb-meta dt{font-size:13px;font-weight:800;color:#c2410c}.sb-meta dd{margin:2px 0 0;font-size:15px;color:#333}
+@media(max-width:700px){.sb-row{grid-template-columns:repeat(2,minmax(0,1fr))}.sb-type{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}.sb-tiles{grid-column:1/-1}.sb-meta{grid-template-columns:minmax(0,1fr)}}
