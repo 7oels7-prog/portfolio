@@ -558,3 +558,15 @@ footer{background:#e6e6e6;color:#666;font-size:14px;padding:0 0 32px}
 .sb-tile{font-family:var(--sp);font-weight:500;letter-spacing:-.04em}
 .fig-spag b,.sw-art span{font-family:var(--sp);font-weight:500;letter-spacing:-.025em}
 .fig-spag span{font-family:var(--ss)}
+
+/* brand board on white, light theme */
+.sb-board{background:#fff;color:#17120F;border:1px solid #EADBD7;box-shadow:none}
+.sb-hero{align-items:flex-start;padding:4px 0}
+.sb-logo{display:flex;align-items:center;gap:18px}
+.sb-logo svg{width:clamp(56px,7vw,84px);height:auto;flex:none}
+.sb-logo span{font-family:var(--sp);font-weight:500;font-size:clamp(48px,7vw,80px);letter-spacing:-.03em;line-height:1;color:#14110F}
+.sb-hero p{color:#57494A;font-family:var(--ss);font-weight:400;letter-spacing:0;font-size:clamp(16px,1.8vw,19px)}
+.sb-sw span{border-color:#EADBD7}.sb-sw small,.sb-type small{color:#57494A}
+.sb-type>div:not(.sb-tiles){background:#FCF8F6;border-color:#EADBD7}
+.sb-tile small{color:inherit}
+.sb-tile small{font-family:var(--ss);letter-spacing:0;font-weight:500}
