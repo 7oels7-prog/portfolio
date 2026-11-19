@@ -630,3 +630,30 @@ footer{background:#e6e6e6;color:#666;font-size:14px;padding:0 0 32px}
   .stage{padding-top:46vw}
   .record{width:80vw;left:50%;right:auto;top:0;margin-left:-40vw}
 }
+
+/* mobile: compact "new release" card in place of the big Spagbol feature */
+.nr{display:none}
+@media (max-width:600px){
+  .sw-rel{display:none}
+  .sw-dupe{display:none!important}
+  .nr{display:block;position:relative;border-radius:16px;padding:16px;background:linear-gradient(135deg,#fff 55%,#fdeee6);border:1px solid #e6e2df}
+  .nr-hit{position:absolute;inset:0;border-radius:inherit;z-index:0}
+  .nr>*:not(.nr-hit){position:relative;z-index:1}
+  .nr-top,.nr-desc,.nr-chips{pointer-events:none}
+  .nr-top{display:flex;gap:14px;align-items:center}
+  .nr-art{flex:none;width:104px;height:104px;border-radius:10px;background:linear-gradient(135deg,#ffc9a8,#f3b6c8 50%,#c8b8ef);display:grid;place-items:center}
+  .nr-art svg{width:56%;height:auto}
+  .nr-meta{display:flex;flex-direction:column;gap:4px;min-width:0}
+  .nr-by{display:flex;align-items:center;gap:8px;font-size:12.5px;color:#5b5b5b;font-weight:600}
+  .nr-by .sw-jr{width:22px;height:22px;font-size:8.5px}
+  .nr h3{margin:2px 0 0;font-size:30px;font-weight:900;font-stretch:118%;line-height:1}
+  .nr-type{font-size:13px;color:#6b6b6b}
+  .nr-desc{margin:14px 0 0;font-size:15px;line-height:1.45;color:#333}
+  .nr-chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
+  .nr-chips span{font-size:12.5px;padding:6px 10px;border-radius:999px;background:#ffe3d6;color:#111;white-space:nowrap}
+  .nr-chips b{font-weight:900;font-stretch:112%;color:#c2410c}
+  .nr-acts{display:flex;align-items:center;gap:14px;margin-top:16px}
+  .nr-try{display:inline-flex;align-items:center;min-height:44px;padding:0 18px;border-radius:999px;border:1.5px solid #111;color:#111;text-decoration:none;font-weight:700;font-size:14px}
+  .nr-play{margin-left:auto;width:52px;height:52px;border-radius:50%;background:var(--accent);display:grid;place-items:center}
+  .nr-play svg{width:18px;height:18px;fill:#111}
+}
