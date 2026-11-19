@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Joel Robinson — Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&display=swap" rel="stylesheet">
+<style>
+/* VOICE: confident, warm, plain-spoken; a hospitality operator who also builds and markets.
+   IDEA: an LP sleeve. Name on the cover, projects as a tracklist, About as liner notes.
+   PICTURE: a black grain sleeve with the record sliding out behind it, label printed with the work.
+   COLOUR and TYPE: black, white and greys with film-grain gradients; one signal-orange pop, like a VU meter or the espresso machine light; Archivo, expanded for display.
+   LAYOUT: sleeve hero full width; tracklist split Side A / Side B; liner notes in two columns; contact as the back cover.
+*/
+:root{color-scheme:light;
+  --bg:light-dark(#f6f6f5,#0e0e0e);--ink:light-dark(#111,#f2f2f2);--mute:light-dark(#5b5b5b,#a9a9a9);
+  --rule:light-dark(#d9d9d9,#2c2c2c);--panel:light-dark(#ffffff,#161616);
+  --accent:#ff5a1f;--on-accent:#1a0a03;--vinyl:#0c0c0c;
+  --grain:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .32 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  --grain-soft:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .09 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  --grain-l:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 .35 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+:root[data-theme]{color-scheme:light}
+*{box-sizing:border-box;min-width:0}
+html{scroll-padding-top:72px;scroll-behavior:smooth}
+body{margin:0;background:var(--grain-soft),linear-gradient(180deg,light-dark(#ffffff,#121212),var(--bg) 40%);background-color:var(--bg);color:var(--ink);font:400 17px/1.6 "Archivo",system-ui,sans-serif;font-stretch:100%;overflow-x:clip}
+a{color:inherit}
+.wrap{max-width:1240px;margin:0 auto;padding:0 max(5vw,16px)}
+.band{padding:clamp(40px,6vw,96px) 0}
+h1,h2,h3{font-stretch:125%;line-height:1.05;text-wrap:balance;margin:0}
+h2{font-size:clamp(32px,4.4vw,52px);font-weight:800}
+h3{font-size:22px;font-weight:750;font-stretch:112%}
+p{margin:0 0 1em;max-width:66ch}
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px;border-radius:4px}
+
+/* nav */
+.top{position:sticky;top:0;z-index:5;background:rgba(255,255,255,.92) var(--grain-soft);color:#111;border-bottom:1px solid #e3e3e3;backdrop-filter:blur(8px)}
+.top .wrap{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px 24px;min-height:60px}
+.mark{font-weight:850;font-stretch:125%;text-decoration:none;font-size:18px}
+.top nav{display:flex;flex-wrap:wrap;gap:4px 20px}
+.top nav a{text-decoration:none;padding:10px 2px;font-weight:550;opacity:.88}
+.top nav a:hover{opacity:1;text-decoration:underline;text-underline-offset:5px;text-decoration-color:var(--accent);text-decoration-thickness:2px}
+
+/* hero sleeve */
+.hero{background:var(--grain-soft),radial-gradient(90% 120% at 85% 15%,#ffffff 0%,#f1f1f1 50%,#dedede 100%);color:#111;padding:clamp(24px,4vw,56px) 0 clamp(48px,7vw,104px);overflow:hidden}
+.stage{position:relative;display:grid;grid-template-columns:minmax(0,1fr);}
+.sleeve{position:relative;z-index:2;background:#fff;border-radius:6px;
+  padding:clamp(20px,4vw,48px);width:min(100%,760px);aspect-ratio:1/1;display:grid;grid-template-rows:auto 1fr auto;overflow:hidden;
+  box-shadow:0 30px 60px -24px rgba(0,0,0,.35),inset 0 0 0 1px rgba(0,0,0,.06);
+  background-image:var(--grain-soft),radial-gradient(120% 90% at 0% 0%,#ffffff,transparent 60%),linear-gradient(160deg,#fbfbfb,#e9e9e9 80%)}
+.record{position:absolute;z-index:1;top:4%;left:calc(min(100%,760px) * .42);width:min(92%,700px);aspect-ratio:1;border-radius:50%;
+  background:repeating-radial-gradient(circle at 50% 50%,#17181f 0 2px,#0d0e13 2px 4px);
+  box-shadow:0 30px 60px -20px rgba(0,0,0,.6);animation:slide 1.4s cubic-bezier(.2,.8,.2,1) .2s both}
+.record::before{content:"";position:absolute;inset:0;border-radius:50%;background:conic-gradient(from 200deg,transparent 0 20%,rgba(255,255,255,.12) 26%,transparent 34% 70%,rgba(255,255,255,.07) 76%,transparent 82%)}
+.label{position:absolute;inset:33%;border-radius:50%;background:var(--accent);color:var(--on-accent);display:grid;place-items:center;text-align:center;font-size:clamp(9px,1.1vw,13px);font-weight:700;line-height:1.3;padding:6%}
+.label::after{content:"";position:absolute;width:5%;aspect-ratio:1;border-radius:50%;background:#bdbdbd;left:47.5%;top:47.5%}
+.label span{display:block;transform:translateY(-62%)}
+@keyframes slide{from{transform:translateX(-38%) rotate(-40deg)}to{transform:none}}
+@media (prefers-reduced-motion:reduce){.record{animation:none}html{scroll-behavior:auto}}
+@media (max-width:820px){.record{left:auto;right:-46%;top:auto;bottom:-18%;width:78%}}
+@media (max-width:600px){.sleeve{aspect-ratio:auto;min-height:560px}.record{display:none}}
+
+
+/* cover furniture */
+.cat{display:flex;flex-wrap:wrap;align-items:center;gap:6px 14px;font-size:13px;color:#666;border-bottom:1px solid #ddd;padding-bottom:12px}
+.cat .logo{width:34px;height:34px;border-radius:50%;border:2px solid #111;color:#111;display:grid;place-items:center;font-weight:900;font-stretch:125%;font-size:13px}
+.sleeve h1{font-size:clamp(52px,11vw,132px);font-weight:900;letter-spacing:-.01em;line-height:.92;align-self:center;margin-top:12px}
+.hype{position:absolute;right:clamp(14px,4vw,44px);top:clamp(70px,11vw,110px);width:clamp(118px,17vw,168px);aspect-ratio:1;border-radius:50%;background:var(--accent);color:var(--on-accent);
+  display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:14px;transform:rotate(10deg);box-shadow:0 8px 18px -8px rgba(0,0,0,.6);line-height:1.1}
+.hype small{font-size:clamp(10px,1.1vw,12px);font-weight:600;margin-bottom:4px}
+.hype b{font-size:clamp(13px,1.6vw,18px);font-weight:900;font-stretch:118%}
+.feat{justify-self:start;background:#111;color:#fff;padding:8px 14px;font-weight:800;font-stretch:112%;font-size:clamp(13px,1.5vw,16px);transform:rotate(-3deg);box-shadow:0 6px 14px -6px rgba(0,0,0,.4)}
+.feat small{display:block;font-size:11px;font-weight:600;color:#bbb;font-stretch:100%}
+.years{position:absolute;right:clamp(24px,6vw,70px);top:66%;width:clamp(74px,10vw,96px);aspect-ratio:1;border-radius:50%;background:#fff;border:2px dashed #111;color:#111;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;transform:rotate(-8deg);line-height:1}
+.years b{font-size:clamp(22px,3vw,30px);font-weight:900;font-stretch:125%}
+.years small{font-size:10.5px;padding:2px 6px 0;line-height:1.15}
+.foot{display:grid;gap:14px}
+.lede{font-size:clamp(17px,1.8vw,21px);line-height:1.45;max-width:32ch;margin:0}
+.credits{display:flex;align-items:end;gap:16px;border-top:1px solid #ddd;padding-top:12px}
+.credits p{font-size:13px;line-height:1.45;color:#666;margin:0;max-width:52ch}
+.barcode{flex:none;margin-left:auto;width:92px;height:40px;background:#fff;padding:4px;border-radius:2px;border:1px solid #ddd}
+@media (max-width:600px){.feat,.years,.hype{position:static;transform:none;box-shadow:none}.hype{width:auto;aspect-ratio:auto;border-radius:12px;align-items:flex-start;text-align:left;flex-direction:row;flex-wrap:wrap;gap:4px 10px;padding:10px 14px;margin:14px 0 0}.hype small{width:100%;margin:0}
+.feat{display:inline-block;margin:10px 0}.years{width:auto;aspect-ratio:auto;border-radius:999px;flex-direction:row;gap:8px;padding:6px 14px;justify-self:start;margin-bottom:12px}.sleeve{display:flex;flex-direction:column}.sleeve h1{align-self:flex-start;margin-top:18px}.hype{justify-content:flex-start;align-self:flex-start;transform:rotate(-2deg)}.years{align-self:flex-start;justify-content:flex-start;transform:rotate(2deg)}.feat{transform:rotate(-2deg)}.barcode{display:none}}
+.ac{fill:var(--accent)}.acs{stroke:var(--accent)}
+/* tracklist */
+.sides{display:grid;grid-template-columns:minmax(0,1fr);gap:40px;margin-top:32px}
+@media (max-width:900px){.sides{grid-template-columns:minmax(0,1fr)}}
+.side-h{display:flex;align-items:center;gap:18px;border-bottom:2px solid var(--ink);padding-bottom:10px;margin-bottom:4px}
+.side-h b{font-stretch:125%;font-weight:900;font-size:26px}
+.side-h b::after{content:"";display:inline-block;width:.42em;height:.42em;border-radius:50%;background:var(--accent);margin-left:.3em;vertical-align:.15em}
+.side-h span{color:var(--mute);display:block;margin-top:4px}
+.side-art{width:112px;height:112px;flex:none;border-radius:6px;object-fit:cover;box-shadow:0 10px 22px -12px rgba(0,0,0,.5);transform:rotate(-2deg)}
+@media(max-width:600px){.side-art{width:76px;height:76px}.side-h b{font-size:21px}}
+details{border-bottom:1px solid var(--rule)}
+summary{list-style:none;cursor:pointer;display:grid;grid-template-columns:44px 2.6em minmax(0,1fr) auto auto;gap:2px 16px;align-items:center;padding:16px 12px;min-height:44px;border-radius:10px}
+summary:hover{background:light-dark(#ececec,#1c1c1c)}
+summary::-webkit-details-marker{display:none}
+.no{font-weight:800;font-stretch:125%;color:var(--mute);font-size:14px;font-variant-numeric:tabular-nums}
+.one{grid-column:3;color:var(--mute);font-size:16px}
+.tog{grid-row:1;grid-column:5;font-size:24px;line-height:1;transition:transform .25s}
+details[open] .tog{transform:rotate(45deg)}
+.body{padding:4px 12px 30px calc(44px + 2.6em + 44px);max-width:980px}
+@media (max-width:700px){.body{padding-left:12px}summary{grid-template-columns:44px minmax(0,1fr) auto}.no,.genre{display:none}.one{grid-column:2}.tog{grid-column:3}summary h3{grid-column:2}}
+.body ul{margin:0 0 1em;padding-left:1.1em}
+.body li{margin:.25em 0}
+.tags{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 14px;padding:0;list-style:none}
+.body .tags{padding:0}
+.tags li{font-size:14px;padding:4px 10px;border-radius:999px;background:light-dark(#e8e8e8,#242424);margin:0}
+.btn{display:inline-flex;align-items:center;min-height:44px;padding:0 18px;border-radius:999px;background:var(--ink);color:var(--bg);text-decoration:none;font-weight:650}
+.cover{display:block;width:100%;height:auto;border-radius:10px;margin:0 0 16px;background:var(--rule)}
+.body h4{font-size:16px;font-weight:750;margin:18px 0 6px}
+.links{list-style:none;padding:0;margin:8px 0 0;display:flex;flex-wrap:wrap;gap:10px 28px;font-size:18px}
+.links a{color:#111;text-underline-offset:5px;text-decoration-color:var(--accent);text-decoration-thickness:2px}
+.shots.two{grid-template-columns:repeat(2,minmax(0,1fr));max-width:600px}
+.shots{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:0 0 8px}
+.shots img{width:100%;height:auto;border-radius:14px;box-shadow:0 8px 20px -10px rgba(0,0,0,.35);border:1px solid var(--rule)}
+.cap{font-size:14px;color:var(--mute);margin:0 0 16px}
+.draft{border:1.5px dashed var(--rule);border-radius:8px;padding:14px 16px;color:var(--mute);font-size:15px}
+
+
+.play{grid-row:1/3;align-self:start;width:44px;height:44px;border-radius:50%;background:#0c0c0c;display:grid;place-items:center;position:relative}
+.play i{width:0;height:0;border-left:13px solid #fff;border-top:8px solid transparent;border-bottom:8px solid transparent;margin-left:3px}
+details[open] .play{background:var(--accent)}
+details[open] .play i{border:0;margin:0;width:16px;height:14px;background:linear-gradient(var(--on-accent),var(--on-accent)) 0 100%/3px 60% no-repeat,linear-gradient(var(--on-accent),var(--on-accent)) 6px 100%/3px 100% no-repeat,linear-gradient(var(--on-accent),var(--on-accent)) 12px 100%/3px 40% no-repeat}
+.playing details.now .play i{animation:eq .9s steps(3) infinite alternate}
+@keyframes eq{0%{background-size:3px 60%,3px 100%,3px 40%}50%{background-size:3px 100%,3px 30%,3px 80%}100%{background-size:3px 30%,3px 70%,3px 100%}}
+.genre{grid-row:1;grid-column:4;font-size:13px;color:var(--mute);border:1px solid var(--rule);border-radius:999px;padding:3px 10px;white-space:nowrap}
+.no{grid-row:1/3}
+details.now summary h3{color:light-dark(#c2410c,var(--accent))}
+.player{position:sticky;bottom:12px;z-index:4;margin-top:28px;display:flex;align-items:center;gap:10px;padding:10px 16px 10px 10px;border-radius:999px;
+  background:rgba(255,255,255,.96) var(--grain-soft);color:#111;border:1px solid #e0e0e0;box-shadow:0 16px 34px -16px rgba(0,0,0,.35);max-width:760px;backdrop-filter:blur(8px)}
+.pb{flex:none;width:44px;height:44px;border-radius:50%;border:0;background:transparent;color:#111;display:grid;place-items:center;cursor:pointer}
+.pb svg{width:20px;height:20px;fill:currentColor}
+.pb:hover{background:#efefef}
+.pb.main{background:var(--accent);color:var(--on-accent);width:50px;height:50px}
+.pb.main:hover{background:var(--accent);filter:brightness(1.08)}
+.pb .i-pause,.playing .pb .i-play{display:none}.playing .pb .i-pause{display:block}
+.np{flex:1;display:grid;gap:3px;padding-left:6px}
+.np small{font-size:12px;color:#666}
+.np b{font-size:15px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.prog{height:4px;border-radius:4px;background:#e4e4e4;overflow:hidden}
+.prog span{display:block;height:100%;width:0;background:var(--accent);transition:width .4s}
+.count{font-size:13px;color:#666;font-variant-numeric:tabular-nums;white-space:nowrap}
+@media (max-width:480px){.count{display:none}.player{gap:4px}}
+@media (max-width:600px){html{scroll-padding-top:128px}}
+@media (prefers-reduced-motion:reduce){.playing details.now .play i{animation:none}.prog span{transition:none}}
+.bench{width:100%;border-collapse:collapse;margin:4px 0 18px;font-size:15px}
+.bench th{text-align:left;font-size:13px;color:var(--mute);font-weight:600;border-bottom:2px solid var(--ink);padding:8px 10px 8px 0}
+.bench td{border-bottom:1px solid var(--rule);padding:10px 10px 10px 0;vertical-align:top}
+.bench td:first-child{font-weight:650}
+.bench a{text-decoration-color:var(--accent);text-underline-offset:3px;white-space:nowrap}
+@media(max-width:600px){.stack thead{display:none}.stack tr{display:grid;padding-block:10px;border-bottom:1px solid var(--rule)}.stack td{display:flow-root;border:0;padding:3px 0 3px 7.5em}.stack td::before{content:attr(data-l);float:left;width:7em;margin-left:-7.5em;color:var(--mute);font-size:13px;font-weight:600}}
+/* Spagbol keeps its own brand colours */
+.fig-spag{display:flex;align-items:center;gap:18px;border-radius:12px;margin:0 0 16px;padding:22px 26px;background:linear-gradient(120deg,#ffc9a8,#f3b6c8 50%,#c8b8ef);color:#14110F}
+.spmark{width:64px;height:64px;flex:none}
+.fig-spag{--sp-serif:"Iowan Old Style","Palatino Linotype",Palatino,"Book Antiqua",Georgia,serif}
+.fig-spag b{display:block;font-family:var(--sp-serif);font-weight:400;font-size:clamp(34px,4vw,44px);line-height:1;letter-spacing:-.01em}
+.fig-spag span{font-family:var(--sp-serif);font-size:17px}
+.sstats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0;border-top:2px solid var(--ink);margin:6px 0 6px}
+.sstats div{padding:14px 14px 10px 0;border-right:1px solid var(--rule)}.sstats div+div{padding-left:14px}.sstats div:last-child{border-right:0}
+.sstats b{display:block;font-size:clamp(28px,3.4vw,40px);font-weight:900;font-stretch:125%;line-height:1}
+.sstats div:nth-child(2) b{color:light-dark(#c2410c,var(--accent))}
+.sstats span{font-size:14px;color:var(--mute);line-height:1.35;display:block;margin-top:4px}
+@media(max-width:700px){.sstats{grid-template-columns:repeat(2,minmax(0,1fr))}.sstats div:nth-child(2){border-right:0}.sstats div:nth-child(3){padding-left:0}.sstats div:nth-child(n+3){border-top:1px solid var(--rule)}}
+.social{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:24px;align-items:start;margin:10px 0 6px}
+.social img{width:100%;height:auto;border-radius:12px;border:1px solid var(--rule)}
+@media(max-width:700px){.social{grid-template-columns:minmax(0,1fr)}}
+.btns{display:flex;flex-wrap:wrap;gap:10px}
+.btn.ghost{background:transparent;color:var(--ink);border:1.5px solid var(--ink)}
+/* liner notes */
+.notes{background:var(--grain-soft),linear-gradient(180deg,light-dark(#ffffff,#141414),light-dark(#e6e6e6,#0b0b0b));border-block:1px solid var(--rule)}
+.cols{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:clamp(28px,5vw,72px);margin-top:28px}
+@media (max-width:900px){.cols{grid-template-columns:minmax(0,1fr)}}
+.cv{list-style:none;margin:0;padding:0}
+.cv li{display:grid;grid-template-columns:minmax(0,1fr);padding:14px 0;border-top:1px solid var(--rule)}
+.cv b{font-weight:700}
+.cv span{color:var(--mute);font-size:15px}
+.skills{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px 24px;margin-top:8px}
+@media (max-width:480px){.skills{grid-template-columns:minmax(0,1fr)}}
+.skills h3{font-size:17px;margin-bottom:6px}
+.skills p{font-size:15px;color:var(--mute);margin:0}
+
+/* back cover */
+.back{background:var(--grain-soft),radial-gradient(80% 140% at 100% 0%,#ffffff,#e6e6e6 70%);color:#111;border-top:1px solid #ddd}
+.back .row{display:flex;flex-wrap:wrap;gap:16px 40px;align-items:end;justify-content:space-between}
+.back p{color:#555}
+.back .btn{background:var(--accent);color:var(--on-accent)}
+footer{background:#e6e6e6;color:#666;font-size:14px;padding:0 0 32px}
+
+/* greatest hits */
+.hits{padding-bottom:0}
+.hitlist{list-style:none;margin:24px 0 0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-top:2px solid var(--ink)}
+.hitlist li{padding:22px 20px 22px 0;border-right:1px solid var(--rule);display:flex;flex-direction:column;gap:4px}
+.hitlist li+li{padding-left:20px}.hitlist li:last-child{border-right:0}
+.hitlist b{font-size:clamp(44px,5.5vw,72px);font-weight:900;font-stretch:125%;line-height:1;letter-spacing:-.02em}
+.hitlist li:first-child b{color:var(--accent)}
+.hitlist span{color:var(--mute);font-size:16px;line-height:1.35}
+.hitlist a{font-size:14px;font-weight:600;margin-top:6px;text-underline-offset:4px;text-decoration-color:var(--accent)}
+@media(max-width:820px){.hitlist{grid-template-columns:repeat(2,minmax(0,1fr))}.hitlist li:nth-child(2){border-right:0}.hitlist li:nth-child(3){padding-left:0}.hitlist li:nth-child(n+3){border-top:1px solid var(--rule)}}
+/* desk flat-lay */
+.desk .sub{color:var(--mute);margin-top:12px}
+.tote{position:relative;margin:110px auto 0;max-width:1000px}
+.tote::before,.tote::after{content:"";position:absolute;top:-96px;width:30%;height:120px;border:16px solid #161616;border-bottom:0;border-radius:140px 140px 0 0;z-index:0}
+.tote::before{left:16%}.tote::after{right:16%;border-color:#262626}
+.objs{position:relative;z-index:1;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px clamp(12px,3vw,40px);padding:clamp(34px,5vw,60px) clamp(16px,4vw,48px) clamp(28px,4vw,48px);
+  border-radius:8px 8px 36px 36px;background:var(--grain),linear-gradient(180deg,light-dark(#f2f2f2,#2a2a2a),light-dark(#dcdcdc,#1c1c1c));
+  box-shadow:0 30px 50px -28px rgba(0,0,0,.45),inset 0 0 0 1px rgba(0,0,0,.06);outline:2px dashed light-dark(#b9b9b9,#555);outline-offset:-14px}
+.objs::before{content:"JR / Stereo";position:absolute;left:50%;bottom:20px;transform:translateX(-50%);font-weight:900;font-stretch:125%;font-size:13px;color:light-dark(#a8a8a8,#5a5a5a)}
+.obj{position:relative;display:flex;flex-direction:column;align-items:center;text-decoration:none;color:var(--ink);padding:8px 0 12px;border-radius:12px;transition:transform .25s}
+.obj .pic{height:170px;width:100%;display:flex;align-items:flex-end;justify-content:center;padding:0 6%}
+.obj img{max-height:100%;max-width:100%;width:auto;height:auto;object-fit:contain;filter:drop-shadow(0 14px 12px rgba(0,0,0,.28))}
+.when{font-size:13px;font-weight:700;color:light-dark(#555,#aaa);margin-bottom:6px;font-variant-numeric:tabular-nums}
+@media(max-width:600px){.obj .pic{height:120px}}
+.obj:nth-child(odd){transform:rotate(-2deg)}.obj:nth-child(even){transform:rotate(2deg)}
+.obj:hover,.obj:focus-visible{transform:translateY(-6px) rotate(0)}
+.bub{position:relative;margin-top:2px;background:var(--panel);border:1px solid var(--rule);border-radius:999px;padding:7px 14px;font-size:15px;font-weight:600;box-shadow:0 6px 14px -8px rgba(0,0,0,.35);white-space:nowrap}
+.bub::before{content:"";position:absolute;left:50%;top:-6px;width:10px;height:10px;background:inherit;border-left:1px solid var(--rule);border-top:1px solid var(--rule);transform:translateX(-50%) rotate(45deg)}
+.obj:hover .bub{background:var(--accent);color:var(--on-accent);border-color:var(--accent)}
+@media(max-width:600px){.tote{margin-top:80px}.tote::before,.tote::after{top:-70px;height:90px;border-width:12px}.objs{grid-template-columns:repeat(2,minmax(0,1fr))}.bub{font-size:13px;padding:6px 10px}}
+@media (prefers-reduced-motion:reduce){.obj{transition:none}}
+/* contact tiles */
+.tiles{position:relative;height:230px;margin:24px 0 8px;max-width:560px}
+.tile{position:absolute;display:grid;place-items:center;text-decoration:none;font-weight:800;font-stretch:118%;font-size:22px;min-height:44px;transition:transform .2s}
+.t1{left:0;top:10px;width:150px;height:150px;border-radius:22px;background:#111;color:#fff;transform:rotate(-8deg)}
+.t2{left:170px;top:30px;width:210px;height:76px;border-radius:999px;background:var(--accent);color:var(--on-accent);transform:rotate(6deg)}
+.t3{left:150px;top:130px;width:170px;height:84px;border-radius:16px;background:#fff;color:#111;border:1.5px solid #111;transform:rotate(-3deg)}
+.t4{left:350px;top:116px;width:118px;height:118px;border-radius:50%;background:transparent;color:#111;border:2px dashed #111;transform:rotate(10deg);font-size:17px}
+.tile:hover,.tile:focus-visible{transform:rotate(0) scale(1.05)}
+.addr{font-size:15px}
+@media(max-width:600px){.tiles{height:auto;display:flex;flex-wrap:wrap;gap:12px}.tile{position:static;width:auto!important;height:auto!important;padding:14px 22px;border-radius:999px!important}}
+@media (prefers-reduced-motion:reduce){.tile{transition:none}}
+
+/* phone polish */
+@media(max-width:600px){
+  .top .wrap{min-height:52px;flex-wrap:nowrap;gap:12px}
+  .mark{display:none}
+  .top nav{flex-wrap:nowrap;justify-content:space-between;width:100%;gap:0}
+  .top nav a{font-size:15px;padding:14px 4px}
+  html{scroll-padding-top:64px}
+  .shots,.shots.two{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:10px;margin-inline:-12px;padding:0 12px 8px;max-width:none;scrollbar-width:none}
+  .shots::-webkit-scrollbar{display:none}
+  .shots img{flex:0 0 68%;scroll-snap-align:start}
+  .shots.two img{flex-basis:72%}
+  .cap{font-size:13px}
+  .player{bottom:8px;padding:6px 12px 6px 6px;gap:2px}
+  .pb{width:40px;height:40px}.pb.main{width:44px;height:44px}
+  .np b{font-size:14px}
+  .hype{border-radius:999px;padding:8px 16px}
+  .sleeve h1{font-size:clamp(50px,15vw,64px)}
+  .fig-spag{padding:16px 18px;gap:14px}.spmark{width:48px;height:48px}
+  .body ul{padding-left:1.1em}
+  .bub{white-space:normal;text-align:center}
+}
+
+.sleeve{container-type:inline-size}
+.sleeve h1{font-size:min(17.5cqi,118px);font-stretch:112%;letter-spacing:-.015em;white-space:nowrap}
+/* phone cover: name fits, record slides up out of the sleeve */
+@media(max-width:600px){
+  .label::after{display:none}
+  .stage{padding-top:56vw}
+  .years{margin-top:10px}
+  .record{display:block;left:auto;right:3%;top:0;bottom:auto;width:76vw;animation-name:slideUp}
+  .label{font-size:10.5px;line-height:1.25}
+  .label span{transform:none}
+}
+@keyframes slideUp{from{transform:translateY(40%) rotate(-30deg)}to{transform:none}}
+</style>
+</head>
+<body>
+
+<header class="top"><div class="wrap">
+  <a class="mark" href="#top">Joel Robinson</a>
+  <nav aria-label="Sections"><a href="#work">Work</a><a href="#skills">Tote bag</a><a href="#about">About</a><a href="#contact">Contact</a></nav>
+</div></header>
+
+<section class="hero" id="top"><div class="wrap"><div class="stage">
+  <div class="record" aria-hidden="true"><div class="label"><span>Spagbol<br>Mile End Method<br>Social, SEO, paid</span></div></div>
+  <div class="sleeve">
+    <div class="cat"><span class="logo">JR</span><span>Stereo</span><span>JR-2026</span><span>33⅓ RPM</span></div>
+    <div class="hype" aria-label="Includes the hits Spagbol and The Mile End Method"><small>Includes the hits</small><b>Spagbol</b><b>The Mile End Method</b></div>
+    <h1>Joel<br>Robinson</h1>
+    <div class="years"><b>10+</b><small>years in hospitality</small></div>
+    <div class="foot">
+      <div class="feat"><small>Featuring</small>Marketing, operations and coffee</div>
+      <p class="lede">Marketer, operator and barista in Melbourne. I build the systems, tools and content that help small teams run better and sell more.</p>
+      <div class="credits">
+        <p>Produced in Melbourne. Recorded at Mile End Bagels, LENSELL Group and Moon Cruller. Mastered at Swinburne (Bachelor of Business, Marketing) and Abbey Road Institute (Diploma of Music Production and Sound Engineering).</p>
+        <svg class="barcode" viewBox="0 0 92 40" aria-hidden="true"></svg>
+      </div>
+    </div>
+  </div>
+</div></div></section>
+
+<main>
+<section class="band hits" aria-label="Greatest hits"><div class="wrap">
+  <h2>Greatest hits</h2>
+  <ol class="hitlist">
+    <li><b>333%</b><span>more profile visits</span><a href="#t-pruijn" data-open="t-pruijn">Pruijn paid social</a></li>
+    <li><b>54%</b><span>more search impressions in 3 months</span><a href="#t-diversiview" data-open="t-diversiview">Diversiview SEO</a></li>
+    <li><b>3.22%</b><span>ad click-through, above industry average</span><a href="#t-pruijn" data-open="t-pruijn">Pruijn paid social</a></li>
+    <li><b>10+</b><span>years running cafés, bars and bakeries</span><a href="#about">Liner notes</a></li>
+  </ol>
+</div></section>
+<section class="band desk" id="skills"><div class="wrap">
+  <h2>What's in my tote bag</h2>
+  <p class="sub">A day in the life, from the opening shift to the studio. Tap an item to play its track.</p>
+  <div class="tote"><div class="objs"><a class="obj" href="#t-method" data-open="t-method"><span class="when">6:30am</span><span class="pic"><img src="img/tote-cap.webp" alt="Single O cap, on for the opening shift" width="520" height="383" loading="lazy"></span><span class="bub">Training and systems</span></a><a class="obj" href="#t-spagbol" data-open="t-spagbol"><span class="when">9:00am</span><span class="pic"><img src="img/tote-notebook.webp" alt="Orange Ideas notebook" width="195" height="275" loading="lazy"></span><span class="bub">Product and apps</span></a><a class="obj" href="#t-lensell" data-open="t-lensell"><span class="when">11:30am</span><span class="pic"><img src="img/tote-iphone.webp" alt="iPhone" width="252" height="520" loading="lazy"></span><span class="bub">Social media</span></a><a class="obj" href="#t-diversiview" data-open="t-diversiview"><span class="when">1:00pm</span><span class="pic"><img src="img/tote-macbook.webp" alt="MacBook Pro" width="509" height="284" loading="lazy"></span><span class="bub">SEO and blogs</span></a><a class="obj" href="#t-pruijn" data-open="t-pruijn"><span class="when">4:00pm</span><span class="pic"><img src="img/tote-charger.webp" alt="Orange magnetic power bank" width="265" height="405" loading="lazy"></span><span class="bub">Paid social</span></a><a class="obj" href="#t-video" data-open="t-video"><span class="when">8:00pm</span><span class="pic"><img src="img/tote-airpods.webp" alt="AirPods Pro" width="520" height="323" loading="lazy"></span><span class="bub">Video and audio</span></a></div></div>
+</div></section>
+<section class="band" id="work"><div class="wrap">
+  <h2>The playlist</h2>
+  <p style="color:var(--mute);margin-top:14px">Album 1, Side A is things I've built. Side B is marketing case studies for fintech, SaaS and fashion brands. Press play on any track, or use the player to skip through.</p>
+
+  <div class="sides">
+    <div>
+      <div class="side-h"><img class="side-art" src="img/side-a.webp" alt="Collage of Spagbol plan, spend and cook mode screens and the Mile End Method app" width="600" height="600" loading="lazy"><div><b>Album 1 / Side A</b><span>Built, 4 tracks</span></div></div>
+
+      <details id="t-spagbol">
+        <summary><span class="play" aria-hidden="true"><i></i></span><span class="no">A1</span><h3>Spagbol</h3><span class="genre">Product and social</span><span class="tog" aria-hidden="true">+</span><span class="one">Built, branded and launched solo, with 1,900+ views across Instagram and TikTok</span></summary>
+        <div class="body">
+          <div class="fig-spag"><svg viewBox="0 0 200 200" class="spmark" aria-hidden="true"><defs><filter id="spg" x="-10%" y="-10%" width="120%" height="120%"><feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="2" seed="3" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="4"/></filter></defs><g filter="url(#spg)"><circle cx="58" cy="58" r="36" fill="#14110F"/><path d="M 106 44 L 178 44 A 36 36 0 0 1 106 44 Z" fill="#14110F"/><path d="M 22 178 L 22 106 A 72 72 0 0 1 94 178 Z" fill="#14110F"/><rect x="112" y="112" width="60" height="60" rx="6" fill="#B07A3C" transform="rotate(18 142 142)"/></g></svg><div><b>Spagbol</b><span>Your greatest hits, on rotation.</span></div></div>
+          <ul class="tags"><li>Product</li><li>Brand</li><li>Build</li><li>Social</li><li>Launch marketing</li></ul>
+          <p>Every week starts with the same question: what are we eating, and what do we need to buy? Most meal apps answer with AI recipes nobody in the house has cooked. Spagbol starts from the dinners a household already loves, plans the week from them and writes one shopping list. I designed, built, branded and launched it on my own.</p>
+
+          <h4>The product</h4>
+          <div class="shots">
+            <img src="img/spag-plan.webp" alt="Spagbol plan screen showing tonight's dinner, a dinners-on day strip and the rest of the week" loading="lazy" width="390" height="844">
+            <img src="img/spag-list.webp" alt="Spagbol shopping list sorted by Woolworths aisles with an estimated shop total" loading="lazy" width="390" height="844">
+            <img src="img/spag-recipes.webp" alt="Spagbol recipe library with search, filters and dietary labels" loading="lazy" width="390" height="844">
+          </div>
+          <p class="cap">Screens from the live app in light mode: my own household's week. Swipe for more on a phone.</p>
+          <ul>
+            <li>Plans 1–7 dinners in one tap: skips recent meals, respects how long you have to cook and favours meals that share ingredients</li>
+            <li>One merged shopping list ("2 cloves garlic" plus "3 cloves garlic" becomes 5), sorted by supermarket aisle with an estimated total</li>
+            <li>Brings in recipes from TikTok, Instagram and Facebook links, recipe sites, Notion or a pasted note</li>
+            <li>Households share recipes, plans and a live list, so everyone sees each other's ticks in the shop</li>
+            <li>Pantry, use-soon food and leftovers built in</li>
+            <li>Works offline in the supermarket, with no tracking in the app</li>
+          </ul>
+
+          <h4>The brand</h4>
+          <p>The idea is a household's greatest hits on rotation, positioned against AI recipe apps. I built the identity around it: a block-print mark of shuffled pieces, a sunrise gradient with sharp black and cream buttons, and a voice that sounds like the household talking ("Same again this week?").</p>
+
+          <h4>Social and launch</h4>
+          <div class="sstats">
+            <div><b>1,389</b><span>Instagram Reel views from 4 Reels</span></div>
+            <div><b>835</b><span>views on the best Reel, "Thursday, 5pm."</span></div>
+            <div><b>39</b><span>Instagram followers from 13 posts</span></div>
+            <div><b>595</b><span>TikTok views from 5 videos</span></div>
+          </div>
+          <p class="cap">Figures from the Spagbol Instagram and TikTok accounts, 19 November 2026.</p>
+          <div class="social">
+            <img src="img/spag-ig-grid.webp" alt="Grid of Spagbol Instagram posts: Dinner's on Spagbol, Cook mode, Thursday 5pm, Snap it, Leftovers, Households, Add to home screen, How it works and Same again this week" loading="lazy" width="622" height="764">
+            <div>
+              <p>The content runs on four pillars:</p>
+              <ul>
+                <li><b>Relatable hooks:</b> the 5pm "what's for dinner?" moment</li>
+                <li><b>How it works:</b> your recipes, your rotation, and households planning together</li>
+                <li><b>Feature drops:</b> cook mode, leftovers and recipe scanning, now testing</li>
+                <li><b>How to:</b> adding Spagbol to your home screen while the iOS app is in review</li>
+              </ul>
+              <p><b>What I learned:</b> the relatable hook, "Thursday, 5pm.", got about 4.5 times the views of the feature demos. The lesson: lead with the problem, then show the feature.</p>
+            </div>
+          </div>
+
+          <h4>Where it's at</h4>
+          <ul>
+            <li>Live testing with real households since 5 November 2026</li>
+            <li>The iOS app is in App Store review; until then, people add the web app to their home screen from Safari</li>
+          </ul>
+          <div class="btns">
+            <a class="btn" href="https://spagbol.app">Visit spagbol.app</a>
+            <a class="btn ghost" href="https://www.instagram.com/spagbol.app/">Instagram</a>
+            <a class="btn ghost" href="https://www.tiktok.com/@spagbol.app">TikTok</a>
+          </div>
+        </div>
+      </details>
+
+      <details id="t-spend">
+        <summary><span class="play" aria-hidden="true"><i></i></span><span class="no">A2</span><h3>Spagbol: price estimates and spend</h3><span class="genre">Pricing and data</span><span class="tog" aria-hidden="true">+</span><span class="one">Turns scanned receipts into a shop estimate, a spend tracker and price tags</span></summary>
+        <div class="body">
+          <div class="shots two">
+            <img src="img/spag-list.webp" alt="Spagbol shopping list showing an estimated shop total and a price on each item" loading="lazy" width="390" height="844">
+            <img src="img/spag-spend.webp" alt="Spagbol spend tab showing this month's spend, cost per dinner, a week-by-week chart and spend by store" loading="lazy" width="390" height="844">
+          </div>
+          <p class="cap">The shopping list's estimate and the Spend tab, from my own household's shops.</p>
+          <ul class="tags"><li>Pricing</li><li>Data</li><li>Product</li></ul>
+          <p>A week of dinners has a price, and most meal planners ignore it. Spagbol shows it before the shop, with an estimate on the list, and after it, with a record of what was spent and where.</p>
+          <h4>What I built</h4>
+          <ul>
+            <li>A price on every shopping-list line and an estimated total for the shop</li>
+            <li>Receipt scanning that runs on the phone: it checks the photo is sharp, crops to the receipt, straightens it, evens out faded ink and joins long receipts taken in up to 4 photos</li>
+            <li>Shorthand like "GRK YGHRT" or "MSHRM CUPS" expanded and matched to real foods, and each household's corrections remembered for next time</li>
+            <li>A Spend tab with cost per dinner, a typical week, week-by-week spend and spend by store</li>
+            <li>Price tags pooled across households as one typical price per food, store and week, so nobody's own shopping is shown to anyone else: <b>Lowest in N weeks</b>, <b>Stock up</b> at 30% or more under usual, and <b>Usually cheaper</b> elsewhere</li>
+          </ul>
+          <h4>Why it matters</h4>
+          <p>It ties the app to the weekly grocery budget, which gives people a reason to open it every week, and it builds a price dataset that grows with every receipt scanned.</p>
+        </div>
+      </details>
+
+      <details id="t-cook">
+        <summary><span class="play" aria-hidden="true"><i></i></span><span class="no">A3</span><h3>Spagbol: cook mode</h3><span class="genre">UX</span><span class="tog" aria-hidden="true">+</span><span class="one">Any saved recipe becomes one step at a time, with timers read straight from the method</span></summary>
+        <div class="body">
+          <div class="shots">
+            <img src="img/spag-cook-ready.webp" alt="Cook mode before-you-start checklist with a serves control" loading="lazy" width="390" height="844">
+            <img src="img/spag-cook-step1.webp" alt="Cook mode step 1 with only that step's ingredients and an up next preview" loading="lazy" width="390" height="844">
+            <img src="img/spag-cook-step3.webp" alt="Cook mode step 3 with a progress bar across the top" loading="lazy" width="390" height="844">
+          </div>
+          <p class="cap">Cook mode in light mode, on a recipe from my own collection.</p>
+          <ul class="tags"><li>UX design</li><li>Content design</li><li>Product</li></ul>
+          <p>Recipes saved from social media are written as captions, not methods. Cook mode turns any of them into a calm, one-step-at-a-time screen you can follow with messy hands.</p>
+          <h4>What I built</h4>
+          <ul>
+            <li>A "Before you start" checklist, scaled to however many you're feeding</li>
+            <li>One step at a time, showing only the ingredients that step uses, with what's up next</li>
+            <li>Timers read straight from the words: "simmer 10–15 mins" starts a 10-minute timer, and timers keep running between steps</li>
+            <li>Long social captions broken into steps at sentences and words like "then" and "meanwhile", so every existing recipe works</li>
+            <li>The screen stays awake while you cook</li>
+          </ul>
+          <h4>On social</h4>
+          <p>Cook mode launched as a feature-drop Reel on Instagram ("Cook mode: your greatest hits, one step at a time"), which reached 169 views.</p>
+        </div>
+      </details>
+
+      <details id="t-method">
+        <summary><span class="play" aria-hidden="true"><i></i></span><span class="no">A4</span><h3>The Mile End Method</h3><span class="genre">Operations</span><span class="tog" aria-hidden="true">+</span><span class="one">Specs, methods and training videos in one place, so every drink is made the same way</span></summary>
+        <div class="body">
+          <div class="shots">
+            <img src="img/mem-home.webp" alt="Mile End Method home screen with search, category filters and a changed-method banner" loading="lazy" width="390" height="844">
+            <img src="img/mem-spec.webp" alt="Matcha syrup spec sheet with quick facts, what changed and a health and safety checklist" loading="lazy" width="390" height="844">
+            <img src="img/mem-service.webp" alt="Steps of service screen with speed targets and numbered service steps" loading="lazy" width="390" height="844">
+          </div>
+          <p class="cap">Screens from the working prototype. Quantities and targets are blurred.</p>
+          <ul class="tags"><li>Operations</li><li>UX and visual design</li><li>Content design</li><li>Prototyping</li><li>Video</li></ul>
+          <p>At Mile End Bagels the same drink could come out differently depending on who made it. Prep methods lived in people's heads, group chats and printed sheets that went out of date, and training meant pulling a supervisor off the floor. I designed and built one place for every prep spec, method and training video.</p>
+          <h4>What I did</h4>
+          <ul>
+            <li>Started from the store's own standards: steps of service, speed targets and prep lists, with stock map codes so every spec points to a real shelf</li>
+            <li>Built a brand system for training material from Mile End's staff documents: colours, type, numbered step boxes and key-rule banners</li>
+            <li>Designed for one hand at the bench, with big tap targets, a tick box on every step and measurements in bold so they read at a glance</li>
+            <li>Piloted with matcha syrup: rewrote it into eight one-action steps with safety checks, and filmed a training video that matches the spec step for step</li>
+            <li>Built it on tools the business already uses: specs live in a Google Sheet and Google Apps Script serves the app, so managers can update a spec without touching code</li>
+          </ul>
+          <h4>The key decision</h4>
+          <p>Publishing a change is tied to sign-off. A new version can't go live without a plain-English note on what changed, and it resets sign-off, so managers can see exactly who still needs to re-read it.</p>
+          <h4>Where it's at</h4>
+          <ul>
+            <li>Working prototype end to end, built to demo to operations and ownership</li>
+            <li>Two specs live and five drafted</li>
+            <li>Next: more syrups, cold brew and weekly specials, QR codes on cupboards and fridges, and rollout to other stores if the Richmond pilot works</li>
+          </ul>
+        </div>
+      </details>
+    </div>
+
+    <div>
+      <div class="side-h"><img class="side-art" src="img/side-b.webp" alt="Collage of the LENSELL, Diversiview, Pruijn and short-form video case study covers" width="600" height="600" loading="lazy"><div><b>Album 1 / Side B</b><span>Marketing, 4 tracks</span></div></div>
+
+      <details id="t-lensell">
+        <summary><span class="play" aria-hidden="true"><i></i></span><span class="no">B1</span><h3>LENSELL social media</h3><span class="genre">Social</span><span class="tog" aria-hidden="true">+</span><span class="one">Grew a niche fintech brand across four channels, up to 1,607 impressions a post</span></summary>
+        <div class="body">
+          <img class="cover" src="img/lensell-cover.webp" alt="LENSELL social media case study cover with post examples" loading="lazy" width="1200" height="675">
+          <ul class="tags"><li>Social strategy</li><li>Account management</li><li>Content</li></ul>
+          <p>LENSELL, an investment analytics brand, wanted more awareness, more community engagement and more traffic to its blogs and product pages, in a niche financial space that is hard to grow.</p>
+          <h4>What I did</h4><ul><li>Ran a multi-channel plan across LinkedIn, Instagram, Facebook and X, posting twice a week on every channel</li><li>Repurposed pillar blog content into carousels, stories, threads and infographics, each in that channel's voice</li><li>Used Google Search Console trends to choose topics that would land on social</li><li>Engaged fintech communities and collaborated with industry voices to drive discussion and shares</li></ul><h4>Results</h4><ul><li>Promoted blog posts reached up to 1,607 impressions each for core education topics</li><li>More shares and interactions, with readers moving from social posts into deeper site content</li><li>Better average position and click-through rate for posts linked to blogs and website calls to action</li></ul>
+        </div>
+      </details>
+      <details id="t-diversiview">
+        <summary><span class="play" aria-hidden="true"><i></i></span><span class="no">B2</span><h3>Diversiview SEO and blog</h3><span class="genre">SEO</span><span class="tog" aria-hidden="true">+</span><span class="one">Impressions up 54% and clicks up 19% in three months from SEO and blogs</span></summary>
+        <div class="body">
+          <img class="cover" src="img/diversiview-cover.webp" alt="Diversiview SEO and blog case study cover showing the website on a laptop" loading="lazy" width="1200" height="675">
+          <ul class="tags"><li>SEO</li><li>Blog content</li><li>Analytics</li></ul>
+          <p>Diversiview had little organic traffic for high-value investment keywords, which limited its reach to investors looking for portfolio optimisation tools.</p>
+          <h4>What I did</h4><ul><li>Researched high-intent keywords such as portfolio optimisation tool, efficient frontier and asset allocation</li><li>Published educational articles two to four times a month, on topics such as backtesting and tool comparisons</li><li>Optimised existing pages and meta tags, tracking the work in Google Search Console and SEMrush</li><li>Built pillar content to lift click-through on high-impression, low-click terms</li></ul><h4>Results in three months</h4><ul><li>Clicks up 19%, from 452 to 536</li><li>Impressions up 54%, from 107K to 165K</li><li>Average position improved from 29.4 to 23.9</li><li>Branded keywords held top-five positions for 12 months</li></ul><img class="cover" src="img/diversiview-results.webp" alt="Search Console chart of clicks and impressions rising over 90 days" loading="lazy" width="1094" height="480">
+        </div>
+      </details>
+      <details id="t-pruijn">
+        <summary><span class="play" aria-hidden="true"><i></i></span><span class="no">B3</span><h3>Pruijn paid social</h3><span class="genre">Paid social</span><span class="tog" aria-hidden="true">+</span><span class="one">Profile visits up 333% and followers up 203% on a limited ad budget</span></summary>
+        <div class="body">
+          <img class="cover" src="img/pruijn-cover.webp" alt="Pruijn paid social case study cover with campaign product photos" loading="lazy" width="1200" height="675">
+          <ul class="tags"><li>Paid social</li><li>Meta ads</li><li>Video</li></ul>
+          <p>Pruijn, a contemporary fashion brand, wanted more profile visits, followers and engagement from a limited ad budget.</p>
+          <h4>What I did</h4><ul><li>Launched four Meta campaigns: two multi-product, two built on user-generated content</li><li>A/B tested eight images and used influencer Reels as ad creative</li><li>Watched CPC and CTR closely to push budget to the best performers</li><li>Kept an organic calendar of Reels and TikToks running alongside, with giveaways to grow email sign-ups</li></ul><h4>Results</h4><ul><li>Profile visits up 333%, to 564</li><li>New followers up 203%</li><li>3.22% click-through rate, above industry average</li><li>1,402 content interactions, including 110 shares</li><li>Average CPC of $1.06 and CPM of $23.79</li></ul><img class="cover" src="img/pruijn-ads.webp" alt="Examples of Pruijn Meta ad creative" loading="lazy" width="1200" height="375">
+        </div>
+      </details>
+      <details id="t-video">
+        <summary><span class="play" aria-hidden="true"><i></i></span><span class="no">B4</span><h3>Video killed the radio star</h3><span class="genre">Research</span><span class="tog" aria-hidden="true">+</span><span class="one">A Reels and TikTok planning guide, checked against the latest 2026 benchmarks</span></summary>
+        <div class="body">
+          <img class="cover" src="img/shortform-cover.webp" alt="Short-form video case study cover" loading="lazy" width="1200" height="675">
+          <ul class="tags"><li>Research</li><li>Planning</li><li>Short-form video</li></ul>
+          <p>A planning guide for Reels and TikTok that sets realistic targets before a single video is shot. I first wrote it in September 2025 and updated it in November 2026 against the latest published benchmarks.</p>
+          <h4>The numbers that matter (checked November 2026)</h4>
+          <table class="bench stack">
+            <thead><tr><th>Metric</th><th>Benchmark</th><th>Source</th></tr></thead>
+            <tbody>
+              <tr><td>Australians on social media</td><td>22.6M, 82.8% of the population (Oct 2026)</td><td><a href="https://datareportal.com/reports/digital-2027-australia">DataReportal</a></td></tr>
+              <tr><td>Reels engagement, by views</td><td>2.7%, nearly double carousels (Jul–Dec 2025, 3,363 brands)</td><td><a href="https://pages.dashsocial.com/hubfs/social-media-benchmark/2026/H1/instagram.pdf">Dash Social</a></td></tr>
+              <tr><td>Instagram engagement, by followers</td><td>Carousels 0.55%, Reels 0.52%, images 0.37% (2025)</td><td><a href="https://www.socialinsider.io/blog/instagram-reels-benchmarks/">Socialinsider</a></td></tr>
+              <tr><td>TikTok conversion ads</td><td>0.61% CTR, 1.92% conversion rate, $4.80 CPM</td><td><a href="https://lebesgue.io/tiktok-ads/tiktok-ads-benchmarks">Lebesgue</a></td></tr>
+              <tr><td>Consumer preference</td><td>63% would most like to learn about a product from a short video</td><td><a href="https://wyzowl.com/video-marketing-statistics/">Wyzowl 2026</a></td></tr>
+            </tbody>
+          </table>
+          <h4>What it tells a brand</h4>
+          <ul>
+            <li>Reels win on reach and views, but per follower, carousels now edge them. Run both, and judge each against its own benchmark.</li>
+            <li>TikTok click-through has dropped while conversion rate has risen, so judge campaigns on what happens after the click, not clicks alone.</li>
+          </ul>
+          <h4>Targets I'd set</h4>
+          <ul>
+            <li>Reels: 2.7% or better engagement by views, with carousels tested alongside</li>
+            <li>TikTok: 0.6% CTR or better at a CPM near $5, and a conversion rate around 2%</li>
+            <li>Product-led stories of 15–60 seconds with a fast hook, A/B testing UGC against multi-product scenes, as in the Pruijn campaign</li>
+          </ul>
+          </div>
+      </details>
+    </div>
+  </div>
+  <div class="player" role="group" aria-label="Playlist player">
+    <button type="button" class="pb" data-act="prev" aria-label="Previous track"><svg viewBox="0 0 24 24"><path d="M6 5h2v14H6zM20 5v14L9 12z"/></svg></button>
+    <button type="button" class="pb main" data-act="play" aria-label="Play"><svg viewBox="0 0 24 24" class="i-play"><path d="M7 4v16l13-8z"/></svg><svg viewBox="0 0 24 24" class="i-pause"><path d="M6 4h4v16H6zM14 4h4v16h-4z"/></svg></button>
+    <button type="button" class="pb" data-act="next" aria-label="Next track"><svg viewBox="0 0 24 24"><path d="M16 5h2v14h-2zM4 5v14l11-7z"/></svg></button>
+    <div class="np"><small id="np-side">Album 1 / Side A</small><b id="np-title">Press play to start</b>
+      <div class="prog"><span id="np-bar"></span></div></div>
+    <span class="count" id="np-count">0 / 6</span>
+  </div>
+</div></section>
+
+<section class="band notes" id="about"><div class="wrap">
+  <h2>Liner notes</h2>
+  <div class="cols">
+    <div>
+      <p>I've spent more than ten years in hospitality, across cafés, quick service, bakery, bars and FMCG, with a marketing degree and a digital marketing role along the way. That mix is what I bring: I know how a busy floor actually runs, and I know how to tell people about it.</p>
+      <p>On the marketing side I've spent more than three years on social content, SEO and paid campaigns for fintech, SaaS and fashion brands, including LENSELL, Diversiview and Pruijn.</p>
+      <p>As manager at Mile End Bagels Richmond I build the weekly roster against sales forecasts, run the POS and stock, coach supervisors to lead shifts, and report to the business each week. Away from work I make music and build software, which is where Spagbol came from.</p>
+    </div>
+    <div>
+    <ul class="cv" aria-label="Experience">
+      <li><b>Cafe and retail manager</b><span>Mile End Bagels, Richmond</span></li>
+      <li><b>FOH supervisor</b><span>Moon Cruller (The Lune Co.)</span></li>
+      <li><b>Digital marketing coordinator</b><span>LENSELL Group</span></li>
+      <li><b>Bachelor of Business (Marketing)</b><span>Swinburne University of Technology</span></li>
+      <li><b>Diploma of Music Production and Sound Engineering</b><span>Abbey Road Institute</span></li>
+    </ul></div>
+  </div>
+</div></section>
+</main>
+
+<section class="band back" id="contact"><div class="wrap">
+  <div class="row">
+    <div>
+      <h2>Let's work together</h2>
+      <p style="margin-top:14px">I'm open to marketing, business, operations, creative and admin roles in Melbourne.</p>
+      <div class="tiles">
+        <a class="tile t1" href="https://www.linkedin.com/in/jcr-melb/">LinkedIn</a>
+        <a class="tile t2" href="mailto:joel.robinson.melb@gmail.com">Email</a>
+        <a class="tile t3" href="https://www.instagram.com/staygosound.wav/">Music</a>
+        <a class="tile t4" href="#work">The work</a>
+      </div>
+      <p class="addr">joel.robinson.melb@gmail.com</p>
+    </div>
+  </div>
+</div></section>
+<footer><div class="wrap">© 2026 Joel Robinson, Melbourne</div></footer>
+
+<script>{
+for(const t of document.querySelectorAll("table.stack")){const h=[...t.rows[0].cells].map(c=>c.textContent);for(const r of [...t.rows].slice(1))[...r.cells].forEach((c,i)=>c.dataset.l=h[i])}
+const bc=document.querySelector(".barcode");if(bc){let x=0,r="";const w=[2,1,3,1,1,2,1,3,2,1,1,2,3,1,2,1,1,3,1,2,2,1,3,1,1,2,1,2,3,1];for(let i=0;x<84;i++){const v=w[i%w.length];if(i%2==0)r+=`<rect x="${x}" y="0" width="${v}" height="32" fill="#111"/>`;x+=v}bc.innerHTML=r}
+const work=document.getElementById("work"),tracks=[...work.querySelectorAll("details")];let cur=-1;
+const T=d=>d.querySelector("h3").textContent,S=d=>d.closest(".sides>div").querySelector(".side-h b").textContent;
+function show(i,scroll){if(i<0||i>=tracks.length)return;cur=i;tracks.forEach((d,j)=>{d.classList.toggle("now",j===i);if(j!==i&&scroll)d.open=false});const d=tracks[i];d.open=true;
+ document.getElementById("np-title").textContent=T(d);document.getElementById("np-side").textContent=S(d);document.getElementById("np-count").textContent=(i+1)+" / "+tracks.length;
+ document.getElementById("np-bar").style.width=((i+1)/tracks.length*100)+"%";if(scroll)d.scrollIntoView({block:"start",behavior:matchMedia("(prefers-reduced-motion: reduce)").matches?"auto":"smooth"})}
+tracks.forEach((d,i)=>d.addEventListener("toggle",()=>{if(d.open&&cur!==i){show(i,false);work.classList.add("playing");setBtn()}}));
+const mainBtn=work.querySelector('[data-act="play"]');function setBtn(){mainBtn.setAttribute("aria-label",work.classList.contains("playing")?"Pause":"Play")}
+work.querySelector(".player").addEventListener("click",e=>{const b=e.target.closest("[data-act]");if(!b)return;const a=b.dataset.act;
+ if(a==="play"){if(cur<0)show(0,true);work.classList.toggle("playing");setBtn()}
+ if(a==="next"){show(Math.min(cur+1,tracks.length-1),true);work.classList.add("playing");setBtn()}
+ if(a==="prev"){show(Math.max(cur-1,0),true);work.classList.add("playing");setBtn()}});
+const openT=id=>{const d=document.getElementById(id);if(d&&d.tagName==="DETAILS"){d.open=true}};
+document.addEventListener("click",e=>{const a=e.target.closest("[data-open]");if(a)openT(a.dataset.open)});
+if(location.hash)openT(location.hash.slice(1));
+}</script>
+</body>
+</html>
