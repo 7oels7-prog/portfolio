@@ -69,7 +69,7 @@
         <a class="sw-btn ghost" href="https://spagbol.app">Try the app</a>
       </div>
     </div>
-    <div class="sw-phones" aria-hidden="true"><img src="img/spag-plan.webp" alt="" loading="lazy" width="390" height="844"><img src="img/spag-cook-step1.webp" alt="" loading="lazy" width="390" height="844"></div>
+    <div class="sw-phones" aria-hidden="true"><div class="sw-ph p1"><img src="img/spag-plan.webp" alt="" loading="lazy" width="390" height="844" class="on"><img src="img/spag-recipes.webp" alt="" loading="lazy" width="390" height="844"><img src="img/spag-list.webp" alt="" loading="lazy" width="390" height="844"><img src="img/spag-spend.webp" alt="" loading="lazy" width="390" height="844"></div><div class="sw-ph p2"><img src="img/spag-cook-step1.webp" alt="" loading="lazy" width="390" height="844" class="on"><img src="img/spag-cook-step3.webp" alt="" loading="lazy" width="390" height="844"><img src="img/spag-cook-ready.webp" alt="" loading="lazy" width="390" height="844"></div></div>
   </article>
   <article class="nr">
     <a class="nr-hit" href="#t-spagbol" data-open="t-spagbol" aria-label="Open the Spagbol case study"></a>
@@ -519,5 +519,18 @@ npp.addEventListener("click",e=>{const b=e.target.closest("[data-np]");if(!b)ret
 document.addEventListener("keydown",e=>{if(npp.hidden)return;if(e.key==="Escape")closeNp();if(e.key==="Tab"){const f=[...npp.querySelectorAll("button,a[href]")].filter(x=>x.offsetParent);if(!f.length)return;const first=f[0],last=f[f.length-1];if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus()}else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus()}}});
 if(location.hash)openNp(location.hash.slice(1));
 }</script>
+<script>
+(function(){
+  var box=document.querySelector('.sw-phones'); if(!box) return;
+  var phones=[].slice.call(box.querySelectorAll('.sw-ph'));
+  if(matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  var timers=[];
+  function step(ph){var imgs=ph.querySelectorAll('img'),i=[].indexOf.call(imgs,ph.querySelector('img.on')),n=(i+1)%imgs.length;
+    imgs.forEach(function(im){im.classList.remove('out')});imgs[i].classList.remove('on');imgs[i].classList.add('out');imgs[n].classList.add('on');}
+  function start(){stop();phones.forEach(function(ph,k){timers.push(setTimeout(function(){step(ph);timers.push(setInterval(function(){step(ph)},3200))},1400+k*1600))})}
+  function stop(){timers.forEach(function(t){clearTimeout(t);clearInterval(t)});timers=[]}
+  new IntersectionObserver(function(e){e[0].isIntersecting?start():stop()},{threshold:.3}).observe(box);
+})();
+</script>
 </body>
 </html>
