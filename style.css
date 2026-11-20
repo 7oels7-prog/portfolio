@@ -701,3 +701,18 @@ footer{background:#e6e6e6;color:#666;font-size:14px;padding:0 0 32px}
   .sw-tn{display:none}
 }
 @container (min-width:460px){.sw-tn span{max-width:18ch}}
+
+/* phones: About and Work turn the page over like a record */
+@media (max-width:760px) and (prefers-reduced-motion:no-preference){
+  @view-transition{navigation:auto}
+  ::view-transition{background:#121212}
+  ::view-transition-group(root){animation-duration:.72s}
+  ::view-transition-old(root){animation:flipOutL .36s cubic-bezier(.55,0,.9,.4) both;transform-origin:50% 50vh;backface-visibility:hidden}
+  ::view-transition-new(root){animation:flipInL .36s cubic-bezier(.1,.6,.45,1) .36s both;transform-origin:50% 50vh;backface-visibility:hidden}
+  html:active-view-transition-type(to-work)::view-transition-old(root){animation-name:flipOutR}
+  html:active-view-transition-type(to-work)::view-transition-new(root){animation-name:flipInR}
+}
+@keyframes flipOutL{to{transform:perspective(1100px) rotateY(-90deg) scale(.92)}}
+@keyframes flipInL{from{transform:perspective(1100px) rotateY(90deg) scale(.92)}}
+@keyframes flipOutR{to{transform:perspective(1100px) rotateY(90deg) scale(.92)}}
+@keyframes flipInR{from{transform:perspective(1100px) rotateY(-90deg) scale(.92)}}
